@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fts-s: 0.7rem;
+  --fts-norm: 1rem;
+  --fts-mid: 1.3rem;
+  --fts-lg: 1.5rem;
+  /* colors*/
+  --clr-bg-0: rgba(0, 0, 0, 0.133);
+  --clr-bg-1: rgba(38, 38, 38, 0.133);
+  --clr-bg-100: rgb(238, 238, 238);
+  --clr-bg-100a: rgba(255, 255, 255, 0.4);
+  --clr-bg-high: rgba(255, 24, 109, 0.934);
+  --clr-bg-medium: rgba(222, 206, 142, 0.95);
+  --clr-bg-norm: rgb(84, 241, 70);
+  --clr-text-0: rgba(0, 0, 0, 0.133);
+  --clr-text-100: rgb(255, 255, 255);
+  --clr-text-1: rgba(115, 115, 115, 0.657);
+
+  --bdr-5: 5px;
+  --bdr-10: 10px;
+  --bdr-15: 15px;
+  --bdr-50: 50%;
+
+
+
+
+
+
+
+}
+
+body {
+
+}
