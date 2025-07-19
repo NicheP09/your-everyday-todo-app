@@ -9,18 +9,23 @@
   --fts-s: clamp(1rem, 2vw, 1.1rem);
   --fts-norm: clamp(1rem, 2vw, 1.3);
   --fts-mid: clamp(1rem, 2vw, 1.5rem);
-  --fts-lg: clamp(1rem, 2vw + 1rem, 2rem);
+  --fts-lg: clamp(1rem, 2vw + 1.5rem, 2rem);
   /* colors*/
   --clr-bg-0: rgb(0, 0, 0);
   --clr-bg-1: rgba(38, 38, 38, 0.133);
   --clr-bg-100: rgb(238, 238, 238);
-  --clr-bg-100a: rgba(255, 255, 255, 0.2);
+  --clr-bg-100a: rgba(255, 255, 255, 0.3);
+  --clr-bg-100b: rgba(255, 255, 255, 0.3);
   --clr-bg-high: rgba(255, 24, 109, 0.934);
   --clr-bg-medium: rgba(222, 206, 142, 0.95);
   --clr-bg-norm: rgb(84, 241, 70);
-  --clr-text-0: rgba(0, 0, 0, 0.133);
+  --clr-text-0: rgb(0, 0, 0);
   --clr-text-100: rgb(255, 255, 255);
+  --clr-text-100b: rgba(255, 255, 255, 0.5);
   --clr-text-1: rgba(115, 115, 115, 0.657);
+  --clr-grid-one: #A47dab;
+  --clr-grid-two: #9acd32;
+  --clr-grid-three: #1de380;
 
   --bdr-5: 5px;
   --bdr-10: 10px;
@@ -64,7 +69,8 @@ body {
   background-color: var(--clr-bg-100a);
   padding: var(--padding-5);
   border-radius: var(--bdr-50);
-  font-size: var(--fts-xs)
+  font-size: var(--fts-xs);
+  color: var(--clr-text-100b);
 }
 
 .notification {
@@ -83,6 +89,66 @@ body {
   border-radius: var(--bdr-50);
 }
 
+h1 {
+  width: 15ch;
+  font-size: var(--fts-lg);
+  font-weight: 500;
+  padding-block: var(--padding-20);
+}
+
+
+.motivation {
+  margin-bottom: var(--margin-20)
+}
+.motivation-quote {
+  border-radius: var(--bdr-15);
+  padding: var(--padding-10);
+}
+
+
+.one {
+  background-color: var(--clr-grid-one);
+  grid-area: one;
+}
+
+.two {
+  background-color:var(--clr-grid-two);
+   grid-area: two;
+}
+
+.three {
+  background-color: var(--clr-grid-three);
+   grid-area: three;
+}
+
+ion-icon {
+  font-size: var(--fts-lg);
+  color: rgb(227, 148, 10);
+  box-shadow: 0 0 3px 5px var(--clr-bg-100b);
+}
+
+.card-content {
+  font-weight: 600;
+  color: var(--clr-text-0);
+  
+}
+
+.card-content p {
+  font-weight: initial;
+  margin-top: var(--margin-5);
+ 
+
+}
+
+.cc1 {
+  margin-top: 30px;
+
+}
+
+
+
+
+
 .flex-1 {
   display: flex;
   justify-content: space-between;
@@ -91,8 +157,8 @@ body {
 
 .flex-2 {
   display: flex;
-  justify-content: center;
   align-items: center;
+  column-gap: 20px;
 }
 
 .flex-3 {
@@ -100,4 +166,22 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.grid-area1{
+  display: grid;
+  grid-template-columns: 1fr 2fr  ;
+  grid-template-areas: 
+  "one two"
+  "one three";
+  gap: 10px;
+
+ 
+}
+
+.grid1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  
 }
