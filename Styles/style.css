@@ -7,8 +7,8 @@
 :root {
   --fts-xs: clamp(0.9rem, 2vw, 1rem);
   --fts-s: clamp(1rem, 2vw, 1.1rem);
-  --fts-norm: clamp(1rem, 2vw, 1.3);
-  --fts-mid: clamp(1rem, 2vw, 1.5rem);
+  --fts-norm: clamp(1rem, 2vw, 1.5rem);
+  --fts-mid: clamp(1.5rem, 2vw, 2rem);
   --fts-lg: clamp(1rem, 2vw + 1.5rem, 2rem);
   /* colors*/
   --clr-bg-0: rgb(0, 0, 0);
@@ -22,7 +22,7 @@
   --clr-text-0: rgb(0, 0, 0);
   --clr-text-100: rgb(255, 255, 255);
   --clr-text-100b: rgba(255, 255, 255, 0.5);
-  --clr-text-1: rgba(115, 115, 115, 0.657);
+  --clr-text-1: rgb(201, 193, 193);
   --clr-grid-one: #A47dab;
   --clr-grid-two: #9acd32;
   --clr-grid-three: #1de380;
@@ -58,6 +58,10 @@ body {
    padding: var(--padding-20);
    font-size: var(--fts-mid);
    background-color: var(--clr-bg-0);
+}
+
+.greet {
+  color: var(--clr-text-1);
 }
 
 .username {
@@ -130,13 +134,14 @@ ion-icon {
 .card-content {
   font-weight: 600;
   color: var(--clr-text-0);
+  font-size: var(--clr-bg-norm);
   
 }
 
 .card-content p {
   font-weight: initial;
   margin-top: var(--margin-5);
- 
+  font-size: var(--fts-s);
 
 }
 
@@ -145,7 +150,14 @@ ion-icon {
 
 }
 
+.ongoing-tag {
+  font-size: var(--fts-mid);
+}
 
+.ongoing-see {
+  font-size: var(--fts-s);
+  color: var(--clr-text-1);
+}
 
 
 
