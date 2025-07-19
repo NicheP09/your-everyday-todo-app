@@ -222,7 +222,7 @@ ion-icon {
 .nav-con {}
 
 nav {
-
+  padding: var(--padding-20);
   position: fixed;
   bottom: 0;
   right: 0;
