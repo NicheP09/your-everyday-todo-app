@@ -167,7 +167,7 @@ ion-icon {
 }
 
 .ongoing-card-container {
-  margin-block: var(--padding-20)
+  margin-block: var(--padding-20);
 }
 
 .ongoing-card {
@@ -175,6 +175,7 @@ ion-icon {
  font-size: var(--fts-norm);
  padding: var(--padding-20);
  border-radius: var(--bdr-15);
+ 
 }
 
 
@@ -218,13 +219,16 @@ ion-icon {
     color: var(--clr-text-100b);
 }
 
+.nav-con {}
+
 nav {
-  padding-block: var(--padding-10);
-  padding-inline: var(--padding-20);
-  position: relative;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
   background: var(--clr-bg-1);
   border-radius: 50% 50% 0 0;
-  margin-top: var(--margin-30);
 }
 ul .fa {
    position: relative;
