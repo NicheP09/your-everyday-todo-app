@@ -14,9 +14,9 @@
   --clr-bg-0: rgb(0, 0, 0);
   --clr-bg-1: rgba(38, 38, 38, 0.133);
   --clr-bg-100: rgb(238, 238, 238);
-  --clr-bg-100a: rgba(255, 255, 255, 0.3);
-  --clr-bg-100b: rgba(255, 255, 255, 0.3);
-  --clr-bg-high: rgba(255, 24, 109, 0.934);
+  --clr-bg-100a: rgba(255, 255, 255, 0.2);
+  --clr-bg-100b: rgba(255, 255, 255, 0.1);
+  --clr-bg-red: rgba(255, 24, 109, 0.934);
   --clr-bg-medium: rgba(222, 206, 142, 0.95);
   --clr-bg-norm: rgb(84, 241, 70);
   --clr-text-0: rgb(0, 0, 0);
@@ -78,7 +78,7 @@ body {
 }
 
 .notification {
-
+  justify-content: center;
   position: absolute;
   width: 10px;
   height: 10px;
@@ -87,7 +87,7 @@ body {
   text-align: center;
   color: var(--clr-text-100);
   
-  background: red;
+  background: var(--clr-bg-red);
   top: 2px;
   right: 2px;
   border-radius: var(--bdr-50);
@@ -127,7 +127,7 @@ h1 {
 
 ion-icon {
   font-size: var(--fts-lg);
-  color: rgb(227, 148, 10);
+  color: maroon;
   box-shadow: 0 0 3px 5px var(--clr-bg-100b);
 }
 
@@ -159,7 +159,59 @@ ion-icon {
   color: var(--clr-text-1);
 }
 
+.ongoing-card-container {
+  margin-block: var(--padding-20)
+}
 
+.ongoing-card {
+ background: var(--clr-bg-100b);
+ font-size: var(--fts-norm);
+ padding: var(--padding-20);
+ border-radius: var(--bdr-15);
+}
+
+.task-desc {
+  line-height: 2;
+}
+
+.priority {
+  border-radius: var(--bdr-15);
+  padding: 1px 5px;
+  margin-bottom: var(--margin-10);
+}
+.high {
+  background-color: var(--clr-bg-red) ;
+}
+
+.medium {
+  background-color: var(--clr-bg-medium);
+}
+
+.low {
+  background-color: var(--clr-bg-norm);
+}
+
+.percent {
+  color: var(--clr-text-1);
+}
+
+.task {
+  font-size: var(--fts-mid);
+}
+.timeframe {
+   color: var(--clr-text-100b);
+}
+.starting .fa-clock-o{
+  
+  font-size: var(--fts-norm);
+ 
+  margin-right: var(--margin-5)
+
+}
+
+.clr-trans {
+    color: var(--clr-text-100b);
+}
 
 .flex-1 {
   display: flex;
