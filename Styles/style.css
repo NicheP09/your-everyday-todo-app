@@ -53,11 +53,13 @@
 
 
 body {
- color: var(--clr-text-100)
+ color: var(--clr-text-100);
+ background: var(--clr-bg-0);
 }
 
 .todo-container {
    padding: var(--padding-20);
+   padding-bottom: initial;
    font-size: var(--fts-mid);
    background-color: var(--clr-bg-0);
    line-height: 1.5;
@@ -139,14 +141,14 @@ ion-icon {
 .card-content {
   font-weight: 600;
   color: var(--clr-text-0);
-  font-size: var(--fts-reg);
+  font-size: var(--fts-s);
   
 }
 
 .card-content p {
   font-weight: initial;
   margin-top: var(--margin-5);
-  font-size: var(--fts-s);
+  font-size: var(--fts-xs);
 
 }
 
@@ -226,7 +228,7 @@ nav {
 }
 ul .fa {
    position: relative;
-  font-size: var(--fts-mid);
+  font-size: var(--fts-lg);
   
 }
 
@@ -234,9 +236,10 @@ li {
   list-style:  none;
 }
 
-a {
+nav a {
   text-decoration: none;
   color: var(--clr-text-100);
+ 
 }
 
 .fa-plus {
@@ -244,11 +247,11 @@ a {
   top: -25px;
   right:0 ;
   left: 0;
-   background: var(--clr-bg-100c);
-   padding: 12px 14px;
+   background: var(--clr-bg-100a);
+   padding: 14px 16px;
    border-radius: var(--bdr-50);
    color: var(--clr-text-100a);
-   font-size: 20px;
+   text-align: center;
    z-index: 100;
 
 }
@@ -256,11 +259,11 @@ a {
 .fa-plus::after {
   content: "";
   background: black;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   position: absolute;
-  top: -2px;
-  right: -2px;
+  top: 0px;
+  right: 0px;
   border-radius: var(--bdr-50);
   z-index: -1;
    
