@@ -13,6 +13,8 @@
 </head>
 <body>
   <div class="todo-container">
+    <main>
+
 
     <div class="top flex-1">
       <div class="username">
@@ -47,7 +49,7 @@
       </div>
     </div>
 
-   
+   <div class="ongoing-task">
     <div class="ongoing flex-1">
       <div class="ongoing-tag">
         Ongoing
@@ -77,16 +79,50 @@
       </div>
     </div>
     </div>
+    </div>
+
+  
+
+
     <div class="nav-con">
        <nav>
       <ul class="flex-1">
         <li><a href=""><i class="fa fa-home"></i></a></li>
-        <li><a href=""> <i class="fa fa-calendar"></i></a></li>
-        <li class="plus-con"><a href="" class="fa fa-plus"></a></li>
+        <li><i class="fa fa-calendar"></i></li>
+        <li class="plus-con fa fa-plus"></li>
         <li><a href=""><i class="fa fa-comment"></i></a></li>
         <li><a href=""><i class="fa fa-user"></i></a></li>
       </ul>
     </nav>
+    </div>
+        </main>
+
+      <div class="get-details ongoing-card"> 
+      <input type="text" name="event" placeholder="Enter Event">
+        <label for="ugerncy-level">
+        Urgency-level:
+      </label>
+      <select name="ugerncy-level" id="ugerncy-level">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <div class="time-con">
+      <label for="start">Start Time
+      <input type="time" name="start" placeholder="HH:MM" value="12:15">
+      </label>
+       <label for="end">End Time
+      <input type="time" name="start" value="12:15">
+      </label>
+      <label for="calendar">Choose date
+        <input type="date" value="2025-07-16">
+      </label>
+
+      <div class="button-con">
+        <button class="save">Save</button>
+      </div>
+      </div>
+    
     </div>
     
    

@@ -57,7 +57,9 @@ body {
  background: var(--clr-bg-0);
   line-height: 1.5;
 }
-
+main {
+  transition: all 0.30s;
+}
 .todo-container {
    padding: var(--padding-20);
    padding-bottom: initial;
@@ -225,10 +227,10 @@ ion-icon {
 
 .nav-con {
 
-  padding-top: 50px;
+  margin-top: 100px;
 }
 .nav-con {
-  padding-top: 80px;
+  padding-top: 100px;
 }
 nav {
    
@@ -263,27 +265,16 @@ nav a {
   top: -45px;
   right:0 ;
   left: 0;
-   background: var(--clr-bg-100a);
+   background: var(--clr-bg-0);
    padding: 14px 16px;
    border-radius: var(--bdr-50);
    color: var(--clr-text-100a);
+   box-shadow: 0 0 3px 3px var(--clr-bg-1);
    text-align: center;
    z-index: 100;
 
 }
 
-.fa-plus::after {
-  content: "";
-  background: black;
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border-radius: var(--bdr-50);
-  z-index: -1;
-   
-}
 
 .flex-1 {
   display: flex;
@@ -311,14 +302,78 @@ nav a {
   "one two"
   "one three";
   gap: 10px;
-
- 
 }
 
 .grid1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.get-details {
   
+  margin-bottom: var(--margin-5);
+  line-height: 1.5;
+  transition: all 0.40s 0.3s ease-in-out;
+  display: none;
+}
+
+.get-details input {
+   color: var(--clr-text-100a);
+  width: 100%;
+  height: 50px;
+  margin-bottom: var(--padding-20);
+  border: none;
+  outline: none;
+  background: var(--clr-bg-100c);
+  border-radius:var(--bdr-15) ;
+  padding-inline: var(--padding-10);
+  cursor: pointer;
+ 
+}
+input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: rgb(218, 215, 215);
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+select {
+  margin-bottom: var(--padding-20);
+  width: 50%;
+  height: 30px;
+  background: var(--clr-bg-100c);
+  color: var(--clr-text-100a);
+  outline: none;
+  border: none;
+  border-radius: var(--bdr-15);
+  padding-inline: var(--padding-10);
+}
+
+label {
+   color: var(--clr-text-100a);
+   font-style: italic;
+}
+.button-con {
+  text-align: center;
+}
+button {
+  padding: var(--padding-10) var(--padding-20);
+  border-radius: var(--bdr-15);
+  background: transparent;
+  color: var(--clr-text-100);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.30s;
+}
+button:hover, button:focus {
+  transform: scale(1.1);
+}
+
+.noshow {
+  display: none;
+}
+.transform-center {
+  display: block;
+   transform:center;
   
 }
 
