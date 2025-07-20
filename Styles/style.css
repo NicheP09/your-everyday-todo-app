@@ -233,10 +233,11 @@ nav {
   padding: var(--padding-20);
   position: fixed;
   bottom: 0;
- 
+  right: 13.5%;
+  left: 13.5%;
   background: var(--clr-bg-1);
   border-radius: 50% 50% 0 0;
-  width: 100%;
+ 
   max-width: 30em;
 }
 ul .fa {
