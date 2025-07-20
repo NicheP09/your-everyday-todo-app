@@ -11,7 +11,7 @@
   
   <title>TodoApp Pro</title>
 </head>
-<body>
+<body class="">
   <div class="todo-container">
     <main>
 
@@ -97,7 +97,10 @@
     </div>
         </main>
 
-      <div class="get-details ongoing-card"> 
+      <div class="get-details ongoing-card "> 
+        <form action="">
+        <div class="close"><i class="fa fa-close" required></i></div>
+        <div class="input-space">
       <input type="text" name="event" placeholder="Enter Event">
         <label for="ugerncy-level">
         Urgency-level:
@@ -119,10 +122,11 @@
       </label>
 
       <div class="button-con">
-        <button class="save">Save</button>
+        <button class="save" type="submit">Save</button>
       </div>
       </div>
-    
+    </div>
+    </form>
     </div>
     
    

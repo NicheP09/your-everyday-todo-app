@@ -56,10 +56,9 @@ body {
  color: var(--clr-text-100);
  background: var(--clr-bg-0);
   line-height: 1.5;
+  min-height: 100dvh;
 }
-main {
-  transition: all 0.30s;
-}
+
 .todo-container {
    padding: var(--padding-20);
    padding-bottom: initial;
@@ -69,6 +68,10 @@ main {
    max-width: 30em;
    margin-inline: auto;
    position: relative;
+  
+}
+main {
+  transition: all 0.30s;
 }
 
 .greet {
@@ -310,25 +313,40 @@ nav a {
 }
 
 .get-details {
-  
-  margin-bottom: var(--margin-5);
+   position: relative;
+  margin-top: 30px;
   line-height: 1.5;
   transition: all 0.40s 0.3s ease-in-out;
   display: none;
 }
+.close {
+  font-size: var(--fts-mid);
+  position: absolute;
+  top: -2px;
+  right:0;
+  width: 20px;
+  height: 20px;
 
+}
+.input-space {
+  margin-top: 50px;
+}
 .get-details input {
-   color: var(--clr-text-100a);
+   color: var(--clr-text-100);
   width: 100%;
-  height: 50px;
+  height: 80px;
   margin-bottom: var(--padding-20);
-  border: none;
+  border: 1px solid var(--clr-bg-100a);
   outline: none;
   background: var(--clr-bg-100c);
   border-radius:var(--bdr-15) ;
   padding-inline: var(--padding-10);
   cursor: pointer;
- 
+  font-size: var(--fts-mid);
+}
+
+input::placeholder {
+  color: var(--clr-text-100) ;
 }
 input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: rgb(218, 215, 215);
@@ -349,8 +367,9 @@ select {
 }
 
 label {
-   color: var(--clr-text-100a);
+   color: var(--clr-text-100);
    font-style: italic;
+    font-size: var(--fts-mid);
 }
 .button-con {
   text-align: center;
@@ -363,6 +382,7 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.30s;
+   font-size: var(--fts-mid);
 }
 button:hover, button:focus {
   transform: scale(1.1);
@@ -371,7 +391,7 @@ button:hover, button:focus {
 .noshow {
   display: none;
 }
-.transform-center {
+.show {
   display: block;
    transform:center;
   
