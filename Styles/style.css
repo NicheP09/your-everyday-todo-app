@@ -184,6 +184,7 @@ ion-icon {
  font-size: var(--fts-norm);
  padding: var(--padding-20);
  border-radius: var(--bdr-15);
+ margin-bottom: var(--margin-20);
  
 }
 

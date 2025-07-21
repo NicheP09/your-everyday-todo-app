@@ -59,25 +59,7 @@
       </div>
     </div>
      <div class="ongoing-card-container">
-    <div class="ongoing-card">
-      <div class="priority-tag flex-1">
-      <div class="priority high">High</div>
-      <div class="percent">85%</div>
-      </div>
-      <div class="task-desc">
-      <div class="task">Go Swimming</div>
-      <div class="timeframe">
-        <div class="starting">
-       <i class='fa fa-clock-o'></i>  0:06 AM - </i> <span class="ending">
-          07:00 PM
-         </span>
-        </div>
-      </div>
-      </div>
-      <div class="date">
-       <span class="clr-trans"> Due Date:</span> August 25
-      </div>
-    </div>
+   
     </div>
     </div>
 
@@ -98,10 +80,12 @@
         </main>
 
       <div class="get-details ongoing-card "> 
-        <form action="">
+      
         <div class="close"><i class="fa fa-close" required></i></div>
+
         <div class="input-space">
-      <input type="text" name="event" placeholder="Enter Event">
+
+      <input type="text" name="event" class="event" placeholder="Enter Event">
         <label for="ugerncy-level">
         Urgency-level:
       </label>
@@ -112,21 +96,20 @@
       </select>
       <div class="time-con">
       <label for="start">Start Time
-      <input type="time" name="start" placeholder="HH:MM" value="12:15">
+      <input class="start-time" type="time" name="start" placeholder="HH:MM" value="12:15">
       </label>
        <label for="end">End Time
-      <input type="time" name="start" value="12:15">
+      <input class="end-time" type="time" name="start" value="12:15">
       </label>
       <label for="calendar">Choose date
-        <input type="date" value="2025-07-16">
+        <input class="date" type="date" value="2025-07-16">
       </label>
 
       <div class="button-con">
-        <button class="save" type="submit">Save</button>
+        <button class="save" type="">Save</button>
       </div>
       </div>
     </div>
-    </form>
     </div>
     
    
