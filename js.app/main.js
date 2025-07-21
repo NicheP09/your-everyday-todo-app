@@ -81,8 +81,8 @@ function renderTodo() {
       let detailHtml = `
        <div class="ongoing-card ongoing-card${index}">
       <div class="priority-tag flex-1">
-      <div class="priority priority${index}">${urgency}</div>
-      <div class="percent">85%</div>
+      <div class="priority priority${index}"></div>
+      <div class="percent">${urgency}%</div>
       </div>
       <div class="task-desc">
       <div class="event">${task}</div>
@@ -108,20 +108,37 @@ function renderTodo() {
     
       ongoingCon.innerHTML = detailsGen;
 
-     document.querySelectorAll('.priority').forEach((prior) => {
-      urgencyTag(prior)
+     document.querySelectorAll('.percent').forEach((percent) => {
+      urgencyTag(percent)
      })
 
 
 
     }     
     
-function urgencyTag(prior) {
-    if (prior.innerText === 'high') {
-        prior.classList.add('high')
-      } else if (prior.innerText === 'medium') {
-        prior.classList.add('medium')
-      } else if (prior.innerText === 'low') {
-        prior.classList.add('low')
+function urgencyTag(percent) {
+  const priority1 = document.querySelectorAll('.priority');
+  taskDetails.forEach((task, index) => {
+    let taskDetailsUrg = taskDetails[index];
+
+    const {urgency} = taskDetailsUrg;
+    let priority= priority1[index]
+     
+      if (urgency === '90') {
+       priority.innerText = 'High'
+       priority.classList.add('high')
+      } else if (urgency === "70") {
+         priority.innerText = 'Medium'
+        priority.classList.add('medium')
+      } else if (urgency === '50') {
+         priority.innerText = 'Low'
+        priority.classList.add('low')
       }
+
+
+    
+     
+   
+  })
+   
 }
