@@ -4,7 +4,14 @@ const getDetails= document.querySelector('.get-details')
 const main = document.querySelector('main');
 const closeIcon = document.querySelector('.close')
 const saveAdd = document.querySelector('.save')
+ const urgencyLev = document.querySelector('#ugerncy-level');
 
+ const eventInput = document.querySelector('.event');
+  
+ const startTime =  document.querySelector('.start-time');
+ const endTime =  document.querySelector('.end-time');
+const date = document.querySelector('.date');
+ const ongoingCon = document.querySelector('.ongoing-card-container')
 
 
 
@@ -36,12 +43,6 @@ saveAdd.addEventListener('click', saveFunc);
 function saveFunc() {
 
 
-  const eventInput = document.querySelector('.event');
-   const urgencyLev = document.querySelector('#ugerncy-level');
-   const startTime =  document.querySelector('.start-time');
-    const endTime =  document.querySelector('.end-time');
-    const date = document.querySelector('.date');
-
     const task = eventInput.value;
     const urgency = urgencyLev.value;
     const timeStarted = startTime.value;
@@ -54,10 +55,10 @@ function saveFunc() {
       
    taskDetails.push({task, urgency,timeStarted,endingTime,endingDate});
 
-    renderTodo();
+      
          getDetails.classList.remove('show');
          main.classList.remove('noshow')
-         
+          renderTodo();
          eventInput.value = '';
        
     }
@@ -66,16 +67,16 @@ function saveFunc() {
 }
 
 function renderTodo() {
-  const ongoingCon = document.querySelector('.ongoing-card-container')
+ 
 
-  let detailsGen;
+   let detailsGen;
+ 
       taskDetails.forEach((detail, index) => {
        const taskDetailsObj = taskDetails[index];
 
         const {task,urgency,timeStarted,endingTime,endingDate} = taskDetailsObj;
 
-        console.log(taskDetails)
-        let detailHtml = `
+      let detailHtml = `
        <div class="ongoing-card">
       <div class="priority-tag flex-1">
       <div class="priority high">${urgency}</div>
@@ -100,10 +101,9 @@ function renderTodo() {
       
        
     detailsGen += detailHtml;
-     console.log(detailHtml)
       })
     
-       ongoingCon.innerHTML = detailsGen
+      ongoingCon.innerHTML = detailsGen
        
 
     }     
