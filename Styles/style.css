@@ -19,7 +19,7 @@
   --clr-bg-100b: rgba(255, 255, 255, 0.1);
   --clr-bg-red: rgba(255, 24, 109, 0.934);
   --clr-bg-medium: rgba(222, 206, 142, 0.95);
-  --clr-bg-norm: rgb(84, 241, 70);
+  --clr-bg-norm: rgba(25, 255, 5, 0.698);
   --clr-text-0: rgb(0, 0, 0);
   --clr-text-100: rgb(255, 255, 255);
   --clr-text-100b: rgba(255, 255, 255, 0.5);
@@ -185,15 +185,17 @@ ion-icon {
  padding: var(--padding-20);
  border-radius: var(--bdr-15);
  margin-bottom: var(--margin-20);
- 
+ position: relative;
 }
-
-
+.edit-icon {
+  position: absolute;
+  top: -5px;
+  right: 0;
+}
 
 .priority {
   border-radius: var(--bdr-15);
   padding: 1px 5px;
-  margin-bottom: var(--margin-10);
 }
 .high {
   background-color: var(--clr-bg-red) ;
@@ -398,3 +400,7 @@ button:hover, button:focus {
   
 }
 
+
+.event {
+  font-size: var(--fts-lg);
+}

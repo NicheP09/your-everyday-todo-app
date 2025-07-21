@@ -33,7 +33,10 @@ function closeForm() {
   getDetails.classList.remove('show');
   main.classList.remove('noshow')
 }
-let taskDetails = [];
+let taskDetails = [
+];
+
+console.log(taskDetails)
 
 saveAdd.addEventListener('click', saveFunc);
 
@@ -49,12 +52,11 @@ function saveFunc() {
     const timeStarted = startTime.value;
     const endingTime = endTime.value;
     const endingDate = date.value;
-
-    
-
+  
     if (task !== '') {
-      
+     task.charAt(0).toUpperCase() + task.slice(1);
    taskDetails.push({task, urgency,timeStarted,endingTime,endingDate});
+  
 
       
          getDetails.classList.remove('show');
@@ -80,6 +82,7 @@ function renderTodo() {
 
       let detailHtml = `
        <div class="ongoing-card ongoing-card${index}">
+       <div class="edit-icon"> <i class="fa fa-edit"></i></div>
       <div class="priority-tag flex-1">
       <div class="priority priority${index}"></div>
       <div class="percent">${urgency}%</div>
@@ -95,8 +98,44 @@ function renderTodo() {
       </div>
       </div>
       <div class="date">
-       <span class="clr-trans"> Due Date: ${endingDate}</span> August 25
+       <span class="clr-trans"> Due Date:</span>  ${endingDate}
       </div>
+
+       <div class="get-details ongoing-card  get-details-edit noshow"> 
+      
+        <div class="close"><i class="fa fa-close" required></i></div>
+
+        <div class="input-space">
+
+      <input type="text" name="event" class="event" placeholder="Enter Event">
+        <label for="ugerncy-level">
+        Urgency-level:
+      </label>
+      <select name="ugerncy-level" id="ugerncy-level">
+        <option value="90">80% -100%</option>
+        <option value="70">60% - 75%</option>
+        <option value="50">30%-55%</option>
+      </select>
+      <div class="time-con">
+      <label for="start">Start Time
+      <input class="start-time" type="time" name="start" placeholder="HH:MM" value="12:15">
+      </label>
+       <label for="end">End Time
+      <input class="end-time" type="time" name="start" value="12:15">
+      </label>
+      <label for="calendar">Choose date
+        <input class="date" type="date" value="2025-07-16">
+      </label>
+
+      <div class="button-con">
+        <button class="save" type="">Save</button>
+      </div>
+      </div>
+    </div>
+    </div>
+     
+    
+
     </div>
         
         `
@@ -112,7 +151,13 @@ function renderTodo() {
       urgencyTag(percent)
      })
 
+     document.querySelectorAll('.edit-icon').forEach((edit,index) => {
+      edit.addEventListener('click', ()=> {
+        editFunc(index)
+      })
+     })
 
+    
 
     }     
     
@@ -134,11 +179,17 @@ function urgencyTag(percent) {
          priority.innerText = 'Low'
         priority.classList.add('low')
       }
-
-
-    
-     
-   
   })
    
+}
+
+function editFunc(point) {
+  const editBoard = document.querySelector('.get-details-edit')
+  document.querySelectorAll('.ongoing-card').forEach((card, index) => {
+    if(point === index) {
+      editBoard.classList.add('show');
+      
+    }
+  })
+  
 }
