@@ -1,4 +1,5 @@
 const showDetailsForm=  document.querySelector(".plus-con");
+const ongoingCon = document.querySelector('.ongoing-card-container');
 const ongoingTask = document.querySelector('.ongoing-task');
 const getDetails= document.querySelector('.get-details')
 const main = document.querySelector('main');
@@ -11,7 +12,7 @@ const saveAdd = document.querySelector('.save')
  const startTime =  document.querySelector('.start-time');
  const endTime =  document.querySelector('.end-time');
 const date = document.querySelector('.date');
- const ongoingCon = document.querySelector('.ongoing-card-container')
+
 
 
 
@@ -69,17 +70,18 @@ function saveFunc() {
 function renderTodo() {
  
 
-   let detailsGen;
+   let detailsGen = '';
  
       taskDetails.forEach((detail, index) => {
+    
        const taskDetailsObj = taskDetails[index];
-
         const {task,urgency,timeStarted,endingTime,endingDate} = taskDetailsObj;
+         
 
       let detailHtml = `
-       <div class="ongoing-card">
+       <div class="ongoing-card ongoing-card${index}">
       <div class="priority-tag flex-1">
-      <div class="priority high">${urgency}</div>
+      <div class="priority priority${index}">${urgency}</div>
       <div class="percent">85%</div>
       </div>
       <div class="task-desc">
@@ -98,15 +100,28 @@ function renderTodo() {
     </div>
         
         `
+       detailsGen += detailHtml;
+ 
       
-       
-    detailsGen += detailHtml;
+
       })
     
-      ongoingCon.innerHTML = detailsGen
-       
+      ongoingCon.innerHTML = detailsGen;
+
+     document.querySelectorAll('.priority').forEach((prior) => {
+      urgencyTag(prior)
+     })
+
+
 
     }     
     
-
-
+function urgencyTag(prior) {
+    if (prior.innerText === 'high') {
+        prior.classList.add('high')
+      } else if (prior.innerText === 'medium') {
+        prior.classList.add('medium')
+      } else if (prior.innerText === 'low') {
+        prior.classList.add('low')
+      }
+}
