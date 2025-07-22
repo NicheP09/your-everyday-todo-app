@@ -12,8 +12,62 @@ const eventInput = document.querySelector('.event');
 const startTime =  document.querySelector('.start-time');
 const endTime =  document.querySelector('.end-time');
 const date = document.querySelector('.date');
+const name1 = document.querySelector('.input-name');
+ const saveName = document.querySelector('.name-add');
+ const showName = document.querySelector('.name');
+ const nameCon = document.querySelector('.name-con');
 
 
+let userName = JSON.parse(localStorage.getItem('userName')) || addUserName() ;
+
+
+
+
+function saveToStorageName() {
+
+  localStorage.setItem('userName', JSON.stringify(userName));
+}
+renderName()
+
+function addUserName(){
+  main.classList.add('noshow')
+  nameCon.classList.remove('noshow')
+  name1.addEventListener('keydown', (e) => {
+    if (e.key === "Enter") {
+      userName = name1.value;
+     
+      if (userName !== "") {
+        userName.charAt(0).toUpperCase() + userName.slice(1);
+      renderName()
+      nameCon.classList.add('noshow');
+      main.classList.remove('noshow')
+      
+      saveToStorageName()
+      }
+     
+
+    }
+  })
+
+
+  saveName.addEventListener("click", () => {
+    userName = name1.value;
+    
+    if (userName !== "") {
+       userName.charAt(0).toUpperCase() + userName.slice(1);
+     renderName()
+      nameCon.classList.add('noshow');
+      main.classList.remove('noshow')
+      saveToStorageName()
+      }
+  })
+ 
+
+}
+
+function renderName() {
+   showName.innerHTML = userName;
+}
 
 
 

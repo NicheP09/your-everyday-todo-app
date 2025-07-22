@@ -106,7 +106,30 @@ main {
   right: 3px;
   border-radius: var(--bdr-50);
 }
+.name-con {
+  padding-top: 50%;
+}
+.input-name {
+  width: 100%;
+  height: 50px;
+  color: var(--clr-text-0);
+  border-radius: var(--bdr-15);
+  outline: none;
+  border:transparent;
+  padding: var(--padding-5);
+}
+.input-name::placeholder{
+  color: var(--clr-text-0);
+   padding: var(--padding-5);
+}
 
+.name-add {
+  margin-top: var(--margin-15);
+  padding: var(--padding-10);
+  font-size: var(--fts-norm);
+  display: block;
+  margin-inline: auto;
+}
 h1 {
   width: 15ch;
   font-size: var(--fts-lg);
@@ -363,8 +386,9 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
 
 .get-details-edit input {
   width: 100%;
-  height: 30px;
- 
+  height: 40px;
+ border: transparent;
+ outline: transparent;
   font-size: var(--fts-norm);
   padding: var(--padding-5);
   border-radius: var(--bdr-15);
