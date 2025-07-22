@@ -81,7 +81,7 @@ function renderTodo() {
 
       let detailHtml = `
        <div class="ongoing-card ongoing-card${index}">
-       <div class="card"> 
+       <div class="card card${index}"> 
        <div class="edit-icon"> <i class="fa fa-edit"></i></div>
       <div class="priority-tag flex-1">
       <div class="priority priority${index}"></div>
@@ -152,10 +152,9 @@ function renderTodo() {
       urgencyTag(percent)
      })
 
-     document.querySelectorAll('.edit-icon').forEach((edit
-     ) => {
+     document.querySelectorAll('.edit-icon').forEach((edit,index) => {
       edit.addEventListener('click', ()=> {
-        editFunc()
+        editFunc(index)
       })
      })
 
@@ -184,15 +183,23 @@ function urgencyTag(percent) {
   })
    
 }
+ const ongoingCard = document.querySelectorAll('.ongoing-card'); 
 
-function editFunc() {
-  const ongoingCard = document.querySelectorAll('.ongoing-card'); 
-  const firstCard = document.querySelector('.card');
-  const editBoard = document.querySelector('.get-details-edit');
-  firstCard.classList.add('noshow');
+ 
+function editFunc(position) {
+ const editBoard = document.querySelector('.get-details-edit');
+ 
+const editCard = document.querySelector(`.get-details-edit${position}`);
+const card = document.querySelector(`.card${position}`);
 
-  editBoard.classList.add('show');
+  if (editCard) {
 
+  editCard.classList.add('show');
+  card.classList.add('noshow')
+
+  }
+
+  
 
  
   
