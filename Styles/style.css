@@ -322,7 +322,7 @@ nav a {
   transition: all 0.40s 0.3s ease-in-out;
   display: none;
 }
-.close {
+.close, .edit-close {
   font-size: var(--fts-mid);
   position: absolute;
   top: -2px;

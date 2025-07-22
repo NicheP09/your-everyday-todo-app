@@ -104,7 +104,7 @@ function renderTodo() {
 
        <div class="get-details-edit get-details-edit${index} noshow"> 
       
-        <div class="close"><i class="fa fa-close" required></i></div>
+        <div class="edit-close edit-close${index}"><i class="fa fa-close" required></i></div>
 
         <div class="input-space">
 
@@ -188,17 +188,22 @@ function urgencyTag(percent) {
  
 function editFunc(position) {
  const editBoard = document.querySelector('.get-details-edit');
- 
+
 const editCard = document.querySelector(`.get-details-edit${position}`);
 const card = document.querySelector(`.card${position}`);
 
   if (editCard) {
-
   editCard.classList.add('show');
-  card.classList.add('noshow')
+  card.classList.add('noshow');
+
+  
 
   }
 
+  const editClose = document.querySelector(`.edit-close${position}`).addEventListener('click', () => {
+     editCard.classList.remove('show');
+     card.classList.remove('noshow');
+  })
   
 
  
