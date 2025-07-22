@@ -5,17 +5,25 @@ const getDetails= document.querySelector('.get-details')
 const main = document.querySelector('main');
 const closeIcon = document.querySelector('.close')
 const saveAdd = document.querySelector('.save')
- const urgencyLev = document.querySelector('#ugerncy-level');
+const urgencyLev = document.querySelector('#ugerncy-level');
 
- const eventInput = document.querySelector('.event');
+const eventInput = document.querySelector('.event');
   
- const startTime =  document.querySelector('.start-time');
- const endTime =  document.querySelector('.end-time');
+const startTime =  document.querySelector('.start-time');
+const endTime =  document.querySelector('.end-time');
 const date = document.querySelector('.date');
 
 
 
 
+
+let taskDetails = JSON.parse(localStorage.getItem('taskDetails')) || [] ;
+
+
+function saveToStorage() { 
+  localStorage.setItem('taskDetails', JSON.stringify(taskDetails)) ;
+  
+};
 showDetailsForm.addEventListener('click', showForm);
 
 
@@ -33,8 +41,7 @@ function closeForm() {
   getDetails.classList.remove('show');
   main.classList.remove('noshow')
 }
-let taskDetails = [
-];
+
 
 
 saveAdd.addEventListener('click', saveFunc);
@@ -60,25 +67,26 @@ function saveFunc() {
       
          getDetails.classList.remove('show');
          main.classList.remove('noshow')
+
           renderTodo();
+         
          eventInput.value = '';
        
     }
-   
- 
+             saveToStorage();
 }
 
+renderTodo();
+
 function renderTodo() {
- 
 
    let detailsGen = '';
  
       taskDetails.forEach((detail, index) => {
     
        const taskDetailsObj = taskDetails[index];
-        const {task,urgency,timeStarted,endingTime,endingDate} = taskDetailsObj;
-         
-
+       const {task,urgency,timeStarted,endingTime,endingDate} = taskDetailsObj;
+        
       let detailHtml = `
        <div class="ongoing-card ongoing-card${index}">
        <div class="card card${index}"> 
@@ -141,11 +149,11 @@ function renderTodo() {
         
         `
        detailsGen += detailHtml;
- 
+       
       
 
       })
-    
+      
       ongoingCon.innerHTML = detailsGen;
 
      document.querySelectorAll('.percent').forEach((percent) => {
@@ -157,9 +165,7 @@ function renderTodo() {
         editFunc(index)
       })
      })
-
     
-
     }     
     
 function urgencyTag(percent) {
@@ -237,11 +243,12 @@ function editSave(position) {
   newEdit.timeStarted = editedStartTime;
   newEdit.endingTime = editedEndTime;
   newEdit.endingDate = editedEndDate;
-  console.log(newEdit)
+
+   saveToStorage()
   renderTodo();
+ 
    editCard.classList.remove('show');
    card.classList.remove('noshow');
-
    
 }
 
