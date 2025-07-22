@@ -46,11 +46,11 @@ saveAdd.addEventListener('click', saveFunc);
 function saveFunc() {
 
 
-    const task = eventInput.value;
-    const urgency = urgencyLev.value;
-    const timeStarted = startTime.value;
-    const endingTime = endTime.value;
-    const endingDate = date.value;
+    let task = eventInput.value;
+    let urgency = urgencyLev.value;
+    let timeStarted = startTime.value;
+    let endingTime = endTime.value;
+    let endingDate = date.value;
   
     if (task !== '') {
      task.charAt(0).toUpperCase() + task.slice(1);
@@ -106,29 +106,29 @@ function renderTodo() {
       
         <div class="edit-close edit-close${index}"><i class="fa fa-close" required></i></div>
 
-        <div class="input-space">
+      <div class="input-space input-space${index}">
 
-      <input type="text" name="event" class="event" value="${task}">
+      <input type="text" name="event" class="edit-event edit-event${index}" value="${task}">
         <label for="ugerncy-level">
         Urgency-level:
       </label>
-      <select name="ugerncy-level" id="ugerncy-level">
+      <select name="urgency-level" class="edit-urgency-level edit-urgency-level${index}">
         <option value="90">80% -100%</option>
         <option value="70">60% - 75%</option>
         <option value="50">30%-55%</option>
       </select>
       <div class="time-con">
       <label for="start">Start Time
-      <input class="start-time" type="time" name="start" placeholder="HH:MM" value="12:15">
+      <input class="edit-start-time edit-start-time${index}" type="time" name="start" placeholder="HH:MM" value="12:15">
       </label>
        <label for="end">End Time
-      <input class="end-time" type="time" name="start" value="12:15">
+      <input class="edit-end-time edit-end-time${index}" type="time" name="start" value="12:15">
       </label>
       <label for="calendar">Choose date
-        <input class="date" type="date" value="2025-07-16">
+        <input class="edit-date edit-date${index}" type="date" value="2025-07-16">
       </label>
 
-      <div class="button-con">
+      <div class="button-con edit-button-con edit-button-con${index} ">
         <button class="save" type="">Save</button>
       </div>
       </div>
@@ -183,10 +183,11 @@ function urgencyTag(percent) {
   })
    
 }
- const ongoingCard = document.querySelectorAll('.ongoing-card'); 
+
 
  
 function editFunc(position) {
+
  const editBoard = document.querySelector('.get-details-edit');
 
 const editCard = document.querySelector(`.get-details-edit${position}`);
@@ -196,16 +197,77 @@ const card = document.querySelector(`.card${position}`);
   editCard.classList.add('show');
   card.classList.add('noshow');
 
-  
-
-  }
-
-  const editClose = document.querySelector(`.edit-close${position}`).addEventListener('click', () => {
+   const editClose = document.querySelector(`.edit-close${position}`).addEventListener('click', () => {
      editCard.classList.remove('show');
      card.classList.remove('noshow');
   })
+
+   document.querySelector(`.edit-button-con${position}`).addEventListener('click',() => editSave(position))
+     
+
+  
+  }
+ 
+    
+}
+
+
+function editSave(position) {
+  const editCard = document.querySelector(`.get-details-edit${position}`);
+  const card = document.querySelector(`.card${position}`);
+  const editInput = document.querySelector(`.edit-event${position}`);
+
+  const editpriority = document.querySelector(`.edit-urgency-level${position}`);
+
+  const editStartTime = document.querySelector(`.edit-start-time${position}`);
+  const editEndTime = document.querySelector(`.edit-end-time${position}`);
+  const editEndDate = document.querySelector(`.edit-date${position}`);
   
 
+  let editedInput = editInput.value;
+  let editedPriority = editpriority.value;
+  let editedStartTime = editStartTime.value;
+  let editedEndTime = editEndTime.value;
+  let editedEndDate =  editEndDate.value;
+
  
-  
+  const newEdit = taskDetails[position];
+  newEdit.task = editedInput;
+  newEdit.urgency = editedPriority;
+  newEdit.timeStarted = editedStartTime;
+  newEdit.endingTime = editedEndTime;
+  newEdit.endingDate = editedEndDate;
+  console.log(newEdit)
+  renderTodo();
+   editCard.classList.remove('show');
+   card.classList.remove('noshow');
+
+   
 }
+
+/*
+  document.querySelectorAll('.edit-button-con').forEach((save, position) => {
+    console.log(position)
+    save.addEventListener('click', () => {
+    let matching = index;
+  const editedSave = document.querySelector(`.edit-button-con${index}`);
+  
+   
+
+   const editInput = document.querySelector(`.edit-event${index}`).value;
+
+  const editpriority = document.querySelector(`.edit-urgency-level${index}`);
+
+  const editStartTime = document.querySelector(`edit-start-time${index}`);
+  const editEndTime = document.querySelector(`.edit-end-time${index}`);
+  let newEdit = '';
+  taskDetails.forEach((details) => {
+    newEdit = taskDetails[index];
+    console.log(newEdit)
+  })
+  
+  
+
+  })
+   
+})*/

@@ -316,8 +316,8 @@ nav a {
 }
 
 .get-details {
-   position: relative;
-  margin-top: 30px;
+  position: relative;
+  margin-top: var(--margin-10);
   line-height: 1.5;
   transition: all 0.40s 0.3s ease-in-out;
   display: none;
@@ -337,7 +337,7 @@ nav a {
 .get-details input {
    color: var(--clr-text-100);
   width: 100%;
-  height: 80px;
+  height: 40px;
   margin-bottom: var(--padding-20);
   border: 1px solid var(--clr-bg-100a);
   outline: none;
@@ -363,7 +363,7 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
 
 .get-details-edit input {
   width: 100%;
-  height: 50px;
+  height: 30px;
  
   font-size: var(--fts-norm);
   padding: var(--padding-5);
