@@ -36,7 +36,6 @@ function closeForm() {
 let taskDetails = [
 ];
 
-console.log(taskDetails)
 
 saveAdd.addEventListener('click', saveFunc);
 
@@ -82,6 +81,7 @@ function renderTodo() {
 
       let detailHtml = `
        <div class="ongoing-card ongoing-card${index}">
+       <div class="card"> 
        <div class="edit-icon"> <i class="fa fa-edit"></i></div>
       <div class="priority-tag flex-1">
       <div class="priority priority${index}"></div>
@@ -100,14 +100,15 @@ function renderTodo() {
       <div class="date">
        <span class="clr-trans"> Due Date:</span>  ${endingDate}
       </div>
+      </div>
 
-       <div class="get-details ongoing-card  get-details-edit noshow"> 
+       <div class="get-details-edit get-details-edit${index} noshow"> 
       
         <div class="close"><i class="fa fa-close" required></i></div>
 
         <div class="input-space">
 
-      <input type="text" name="event" class="event" placeholder="Enter Event">
+      <input type="text" name="event" class="event" value="${task}">
         <label for="ugerncy-level">
         Urgency-level:
       </label>
@@ -151,9 +152,10 @@ function renderTodo() {
       urgencyTag(percent)
      })
 
-     document.querySelectorAll('.edit-icon').forEach((edit,index) => {
+     document.querySelectorAll('.edit-icon').forEach((edit
+     ) => {
       edit.addEventListener('click', ()=> {
-        editFunc(index)
+        editFunc()
       })
      })
 
@@ -183,13 +185,15 @@ function urgencyTag(percent) {
    
 }
 
-function editFunc(point) {
-  const editBoard = document.querySelector('.get-details-edit')
-  document.querySelectorAll('.ongoing-card').forEach((card, index) => {
-    if(point === index) {
-      editBoard.classList.add('show');
-      
-    }
-  })
+function editFunc() {
+  const ongoingCard = document.querySelectorAll('.ongoing-card'); 
+  const firstCard = document.querySelector('.card');
+  const editBoard = document.querySelector('.get-details-edit');
+  firstCard.classList.add('noshow');
+
+  editBoard.classList.add('show');
+
+
+ 
   
 }

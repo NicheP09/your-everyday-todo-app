@@ -357,6 +357,27 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
   cursor: pointer;
   
 }
+.get-details-edit {
+ 
+}
+
+.get-details-edit input {
+  width: 100%;
+  height: 50px;
+ 
+  font-size: var(--fts-norm);
+  padding: var(--padding-5);
+  border-radius: var(--bdr-15);
+}
+
+.get-details-edit label {
+  font-size: var(--fts-norm);
+}
+
+.get-details-edit .save {
+  margin-top: var(--margin-20);
+  font-size: var(--fts-norm);
+}
 select {
   margin-bottom: var(--padding-20);
   width: 50%;
