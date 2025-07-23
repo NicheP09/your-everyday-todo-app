@@ -95,7 +95,7 @@ function ongoingSeeFunc() {
      
   
     })
-    renderTodo()
+   
   }
     
   }
@@ -250,7 +250,7 @@ function renderTodo() {
         editFunc(index)
       })
      })
-    
+    ongoingSeeFunc()
     }     
     
 function urgencyTag(percent) {
