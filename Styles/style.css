@@ -319,6 +319,7 @@ nav {
   margin-inline: auto;
   max-width: 30em;
   cursor: pointer;
+  margin-bottom: var(--margin-20);
 }
 ul .fa {
    position: relative;
