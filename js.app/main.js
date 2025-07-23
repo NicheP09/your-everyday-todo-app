@@ -17,6 +17,7 @@ const name1 = document.querySelector('.input-name');
  const showName = document.querySelector('.name');
  const nameCon = document.querySelector('.name-con');
  const ongoingSee = document.querySelector('.ongoing-see');
+ const note = document.querySelector('.note');
 
 
 
@@ -330,29 +331,15 @@ function editSave(position) {
    
 }
 
-/*
-  document.querySelectorAll('.edit-button-con').forEach((save, position) => {
-    console.log(position)
-    save.addEventListener('click', () => {
-    let matching = index;
-  const editedSave = document.querySelector(`.edit-button-con${index}`);
-  
-   
 
-   const editInput = document.querySelector(`.edit-event${index}`).value;
 
-  const editpriority = document.querySelector(`.edit-urgency-level${index}`);
+note.addEventListener('click', () => writeNote());
 
-  const editStartTime = document.querySelector(`edit-start-time${index}`);
-  const editEndTime = document.querySelector(`.edit-end-time${index}`);
-  let newEdit = '';
-  taskDetails.forEach((details) => {
-    newEdit = taskDetails[index];
-    console.log(newEdit)
-  })
-  
-  
+const noteCon = document.querySelector('.write-con')
+const noteArea = document.querySelector('.note-area')
 
-  })
-   
-})*/
+function writeNote() {
+  main.classList.add('noshow');
+  noteCon.classList.add('show')
+  noteArea.focus();
+}
