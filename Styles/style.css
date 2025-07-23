@@ -99,8 +99,8 @@ main {
 .notification {
   justify-content: center;
   position: absolute;
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   font-size:var(--fts-norm);
   font-weight: 600;
   text-align: center;
@@ -137,8 +137,8 @@ main {
 }
 h1 {
   width: 15ch;
-  font-size: var(--fts-lg);
-  font-weight: 500;
+  font-size: var(--fts-xlg);
+  font-weight: 600;
   padding-block: var(--padding-20);
 }
 
