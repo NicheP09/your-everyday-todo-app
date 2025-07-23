@@ -92,7 +92,7 @@ main {
   background-color: var(--clr-bg-100a);
   padding: var(--padding-5) 7px;
   border-radius: var(--bdr-50);
-  font-size: var(--fts-norm);
+  font-size: var(--fts-lg);
   color: var(--clr-text-100b);
 }
 
@@ -101,7 +101,7 @@ main {
   position: absolute;
   width: 12px;
   height: 12px;
-  font-size: 11px;
+  font-size:var(--fts-norm);
   font-weight: 600;
   text-align: center;
   color: var(--clr-text-100);
@@ -144,11 +144,12 @@ h1 {
 
 
 .motivation {
-  margin-block: var(--margin-20)
+  margin-block: var(--margin-20);
 }
 .motivation-quote {
   border-radius: var(--bdr-15);
   padding: var(--padding-10);
+
 }
 
 
@@ -168,7 +169,7 @@ h1 {
 }
 
 ion-icon {
-  font-size: var(--fts-lg);
+  font-size: 2.2rem;
   color: maroon;
   box-shadow: 0 0 3px 5px var(--clr-bg-100b);
 }
@@ -176,24 +177,24 @@ ion-icon {
 .card-content {
   font-weight: 600;
   color: var(--clr-text-0);
-  font-size: var(--fts-s);
+  font-size: var(--fts-mid);
   
 }
 
 .card-content p {
   font-weight: initial;
-  margin-top: var(--margin-5);
-  font-size: var(--fts-xs);
+ 
+  font-size: var(--fts-mid);
 
 }
 
 .cc1 {
-  margin-top: 30px;
+  margin-top: 10px;
 
 }
 
 .ongoing-tag {
-  font-size: var(--fts-lg);
+  font-size: var(--fts-mid);
   margin-block: var(--padding-10);
 }
 
@@ -336,7 +337,7 @@ nav a {
 .flex-2 {
   display: flex;
   align-items: center;
-  column-gap: 20px;
+ 
 }
 
 .flex-3 {
@@ -349,7 +350,7 @@ nav a {
 .grid-area1{
   display: grid;
   grid-template-columns: 1fr 2fr;
- 
+  grid-template-rows: 100px 100px;
   grid-template-areas: 
   "one two"
   "one three";
@@ -403,13 +404,10 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
   cursor: pointer;
   
 }
-.get-details-edit {
- 
-}
 
 .get-details-edit input {
   width: 100%;
-  height: 60px;
+  height: 40px;
  border: transparent;
  outline: transparent;
   font-size: var(--fts-norm);
@@ -532,11 +530,11 @@ button:hover, button:focus {
 }
 
 .ongoing-tag {
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-lg);
 }
 
 .ongoing-see {
-  font-size: var(--fts-lg);
+  font-size: var(--fts-mid);
   
 }
 
@@ -557,6 +555,18 @@ button:hover, button:focus {
 
 .event {
   font-size: 4rem;
+} 
+.get-details {
+  line-height: 2;
+}
+.get-details input {
+  height: 100px;
+  font-size: var(--fts-xlg);
+}
+
+select {
+  height: 80px;
+  font-size: var(--fts-lg);
 }
 
 }
