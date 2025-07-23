@@ -230,6 +230,7 @@ ion-icon {
   position: absolute;
   top: -5px;
   right: 0;
+  font-size: var(--fts-lg);
 }
 
 .priority {
@@ -292,7 +293,7 @@ nav {
 }
 ul .fa {
    position: relative;
-  font-size: var(--fts-lg);
+  font-size: var(--fts-mid);
   
 }
 
@@ -378,7 +379,7 @@ nav a {
 .get-details input {
    color: var(--clr-text-100);
   width: 100%;
-  height: 40px;
+  height: 60px;
   margin-bottom: var(--padding-20);
   border: 1px solid var(--clr-bg-100a);
   outline: none;
