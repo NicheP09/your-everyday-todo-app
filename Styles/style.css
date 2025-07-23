@@ -463,3 +463,11 @@ button:hover, button:focus {
   font-size: var(--fts-lg);
 }
 
+@media (min-width: 40em) {
+  .todo-container {
+    max-width: initial;
+  }
+  nav {
+    max-width: initial;
+  }
+}
