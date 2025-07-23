@@ -16,6 +16,8 @@ const name1 = document.querySelector('.input-name');
  const saveName = document.querySelector('.name-add');
  const showName = document.querySelector('.name');
  const nameCon = document.querySelector('.name-con');
+ const ongoingSee = document.querySelector('.ongoing-see');
+
 
 
 let userName = JSON.parse(localStorage.getItem('userName')) || addUserName() ;
@@ -50,6 +52,8 @@ function addUserName(){
   })
 
 
+
+
   saveName.addEventListener("click", () => {
     userName = name1.value;
     
@@ -71,7 +75,20 @@ function renderName() {
 
 
 
+
 let taskDetails = JSON.parse(localStorage.getItem('taskDetails')) || [] ;
+
+function ongoingSeeFunc() {
+  let ongoingShow = ongoingSee;
+  if (!Object.keys(taskDetails).length) {
+    ongoingShow.innerText = "Add Event";
+  } else if (Object.keys(taskDetails).length <= 2) {
+     ongoingShow.innerText = "Add More Events";
+  } else if (Object.keys(taskDetails).length > 2) {
+     ongoingShow.innerText = "See All";
+  }
+}
+ongoingSeeFunc()
 
 
 function saveToStorage() { 
