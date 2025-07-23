@@ -14,7 +14,7 @@ html {
   --fts-norm: clamp(1rem, 2vw, 1.5rem);
   --fts-mid: clamp(1.5rem, 2vw, 2rem);
   --fts-lg: clamp(1.5rem, 2vw + 1rem, 2rem);
-  --fts-xlg: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  --fts-xlg: clamp(1.5rem, 2vw + 1.5rem, 3rem);
   /* colors*/
   --clr-bg-0: rgb(0, 0, 0);
   --clr-bg-1: rgb(53, 53, 53);
@@ -108,7 +108,7 @@ main {
   
   background: var(--clr-bg-red);
   top: 4px;
-  right: 3px;
+  right: 5px;
   border-radius: var(--bdr-50);
 }
 .name-con {
@@ -200,6 +200,17 @@ ion-icon {
 .ongoing-see {
   font-size: var(--fts-s);
   color: var(--clr-text-1);
+  cursor: pointer;
+}
+
+.see-all {
+  color: rgb(186, 253, 14);
+  transition: all 0.30s;
+}
+
+.see-all:hover {
+  opacity: 0.9;
+  transform: scale(1.2);
 }
 
 .ongoing-card-container {
@@ -277,6 +288,7 @@ nav {
   border-radius: 50% 50% 0 0;
   margin-inline: auto;
   max-width: 30em;
+  cursor: pointer;
 }
 ul .fa {
    position: relative;
@@ -472,8 +484,12 @@ button:hover, button:focus {
   }
   nav {
     max-width: initial;
-     padding: 30px 20px 0 20px;
+     padding: 50px 20px 20px 20px;
      font-size: var(--fts-xlg);
+  }
+
+  ul .fa {
+    font-size: var(--fts-xlg);
   }
 
    .grid-area1 {

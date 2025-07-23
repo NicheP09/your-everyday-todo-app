@@ -87,14 +87,19 @@ function ongoingSeeFunc() {
      ongoingShow.innerText = "Add More Events";
   } else if (Object.keys(taskDetails).length > 2) {
      ongoingShow.innerText = "See All";
-  }
-
-  if (ongoingShow.innerText === "See All") {
+     ongoingShow.classList.add("see-all")
+      if (ongoingShow.innerText === "See All") {
     ongoingShow.addEventListener('click', () => {
+       
      window.scrollTo(0, document.body.scrollHeight)
+     
   
     })
   }
+    
+  }
+
+ 
 }
 ongoingSeeFunc()
 
