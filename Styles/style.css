@@ -219,6 +219,7 @@ ion-icon {
 }
 
 .ongoing-card {
+ 
  background: var(--clr-bg-100b);
  font-size: var(--fts-norm);
  padding: var(--padding-20);
@@ -236,6 +237,9 @@ ion-icon {
 .priority {
   border-radius: var(--bdr-15);
   padding: 1px 5px;
+}
+.priority-tag {
+ margin-top: var(--margin-15);
 }
 .high {
   background-color: var(--clr-bg-red) ;
@@ -280,7 +284,7 @@ ion-icon {
 }
 nav {
    
-  padding: var(--padding-20) 20px 0 20px;
+  padding: 30px 20px 0 20px;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -293,7 +297,7 @@ nav {
 }
 ul .fa {
    position: relative;
-  font-size: var(--fts-mid);
+  font-size: var(--fts-lg);
   
 }
 
@@ -365,7 +369,7 @@ nav a {
   display: none;
 }
 .close, .edit-close {
-  font-size: var(--fts-mid);
+  font-size: var(--fts-lg);
   position: absolute;
   top: -2px;
   right:0;
@@ -377,9 +381,9 @@ nav a {
   margin-top: 50px;
 }
 .get-details input {
-   color: var(--clr-text-100);
+  color: var(--clr-text-100);
   width: 100%;
-  height: 60px;
+  height: 80px;
   margin-bottom: var(--padding-20);
   border: 1px solid var(--clr-bg-100a);
   outline: none;
@@ -387,7 +391,7 @@ nav a {
   border-radius:var(--bdr-15) ;
   padding-inline: var(--padding-10);
   cursor: pointer;
-  font-size: var(--fts-mid);
+  font-size: var(--fts-lg);
 }
 
 input::placeholder {
@@ -405,12 +409,13 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
 
 .get-details-edit input {
   width: 100%;
-  height: 40px;
+  height: 60px;
  border: transparent;
  outline: transparent;
   font-size: var(--fts-norm);
   padding: var(--padding-5);
   border-radius: var(--bdr-15);
+  font-size: var(--fts-mid);
 }
 
 .get-details-edit label {
@@ -419,18 +424,19 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
 
 .get-details-edit .save {
   margin-top: var(--margin-20);
-  font-size: var(--fts-norm);
+  font-size: var(--fts-lg);
 }
 select {
   margin-bottom: var(--padding-20);
   width: 50%;
-  height: 30px;
+  height: 50px;
   background: var(--clr-bg-100c);
   color: var(--clr-text-100a);
   outline: none;
   border: none;
   border-radius: var(--bdr-15);
   padding-inline: var(--padding-10);
+  font-size: var(--fts-mid);
 }
 
 label {
