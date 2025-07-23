@@ -13,7 +13,8 @@ html {
   --fts-s: clamp(1rem, 2vw, 1.1rem);
   --fts-norm: clamp(1rem, 2vw, 1.5rem);
   --fts-mid: clamp(1.5rem, 2vw, 2rem);
-  --fts-lg: clamp(1rem, 2vw + 1.5rem, 2rem);
+  --fts-lg: clamp(1.5rem, 2vw + 1rem, 2rem);
+  --fts-xlg: clamp(1.5rem, 2vw + 1rem, 2.5rem);
   /* colors*/
   --clr-bg-0: rgb(0, 0, 0);
   --clr-bg-1: rgb(53, 53, 53);
@@ -330,7 +331,8 @@ nav a {
 
 .grid-area1{
   display: grid;
-  grid-template-columns: 1fr 2fr  ;
+  grid-template-columns: 1fr 2fr;
+ 
   grid-template-areas: 
   "one two"
   "one three";
@@ -466,8 +468,16 @@ button:hover, button:focus {
 @media (min-width: 40em) {
   .todo-container {
     max-width: initial;
+    height: initial;
   }
   nav {
     max-width: initial;
+     padding: 30px 20px 0 20px;
+     font-size: var(--fts-xlg);
   }
+
+   .grid-area1 {
+     grid-template-rows: 150px 150px;
+   }
+
 }
