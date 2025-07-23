@@ -87,6 +87,32 @@ main {
   font-weight: 600;
 }
 
+.intro {
+  font-size: var(--fts-xlg);
+  font-weight: 600;
+  margin-bottom: 80px;
+  text-align: center;
+
+}
+
+.begin {
+  margin-bottom: var(--margin-10);
+  font-size: var(--fts-lg);
+}
+button {
+  padding: var(--padding-10) var(--padding-20);
+  border-radius: var(--bdr-15);
+  background: transparent;
+  color: var(--clr-text-100);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.30s;
+   font-size: var(--fts-mid);
+}
+button:hover, button:focus {
+  transform: scale(1.1);
+}
+
 .reminder-icon {
   position: relative;
   background-color: var(--clr-bg-100a);
@@ -112,16 +138,16 @@ main {
   border-radius: var(--bdr-50);
 }
 .name-con {
-  padding-top: 50%;
+  padding-top: 20%;
 }
 .input-name {
   width: 100%;
-  height: 50px;
   color: var(--clr-text-0);
   border-radius: var(--bdr-15);
   outline: none;
   border:transparent;
-  padding: var(--padding-5);
+  padding: var(--padding-20);
+  font-size: var(--fts-lg);
 }
 .input-name::placeholder{
   color: var(--clr-text-0);
@@ -129,9 +155,8 @@ main {
 }
 
 .name-add {
-  margin-top: var(--margin-15);
+  margin-top: var(--margin-20);
   padding: var(--padding-10);
-  font-size: var(--fts-norm);
   display: block;
   margin-inline: auto;
 }
@@ -280,17 +305,16 @@ ion-icon {
 
   margin-top: 100px;
 }
-.nav-con {
-  padding-top: 100px;
-}
+
 nav {
    
-  padding: 30px 20px 0 20px;
+  padding: 40px 20px 60px 20px;
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
-  background: var(--clr-bg-1);
+  height: 80px;
+  background: transparent;
   border-radius: 50% 50% 0 0;
   margin-inline: auto;
   max-width: 30em;
@@ -298,7 +322,11 @@ nav {
 }
 ul .fa {
    position: relative;
-  font-size: var(--fts-lg);
+  font-size: var(--fts-xlg);
+  background: var(--clr-bg-0);
+  border-radius: var(--bdr-5);
+  padding: 14px 16px;
+   box-shadow: 0 0 3px 3px var(--clr-bg-1);
   
 }
 
@@ -347,6 +375,13 @@ nav a {
   align-items: center;
 }
 
+.flex-4 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 40px;
+}
+
 .grid-area1{
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -370,16 +405,18 @@ nav a {
   display: none;
 }
 .close, .edit-close {
-  font-size: var(--fts-lg);
+  font-size: var(--fts-xlg);
   position: absolute;
   top: -2px;
   right:0;
-  width: 20px;
-  height: 20px;
+ 
 
 }
 .input-space {
   margin-top: 50px;
+}
+.get-details {
+  padding-top: 10%;
 }
 .get-details input {
   color: var(--clr-text-100);
@@ -407,7 +444,7 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
 
 .get-details-edit input {
   width: 100%;
-  height: 40px;
+  height: 60px;
  border: transparent;
  outline: transparent;
   font-size: var(--fts-norm);
@@ -445,19 +482,7 @@ label {
 .button-con {
   text-align: center;
 }
-button {
-  padding: var(--padding-10) var(--padding-20);
-  border-radius: var(--bdr-15);
-  background: transparent;
-  color: var(--clr-text-100);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.30s;
-   font-size: var(--fts-mid);
-}
-button:hover, button:focus {
-  transform: scale(1.1);
-}
+
 
 .note-area {
   padding: var(--padding-10);
@@ -501,21 +526,21 @@ button:hover, button:focus {
 }
   nav {
     max-width: initial;
-     padding: 40px 20px 20px 20px;
-     font-size: var(--fts-xlg);
+     padding: 40px 20px 100px 20px;
+     font-size: 3.5rem;
   }
 
   ul .fa {
-    font-size: var(--fts-xlg);
+    font-size: 3.5rem;
   }
 
    .grid-area1 {
-     grid-template-rows: 150px 150px;
+     grid-template-rows: 200px 200px;
      gap: 30px;
    }
 
    ion-icon {
-  font-size: 4rem;
+  font-size: 5rem;
 }
 
 .card-content {
@@ -530,11 +555,11 @@ button:hover, button:focus {
 }
 
 .ongoing-tag {
-  font-size: var(--fts-lg);
+  font-size: var(--fts-xlg);
 }
 
 .ongoing-see {
-  font-size: var(--fts-mid);
+  font-size: var(--fts-lg);
   
 }
 
@@ -567,6 +592,28 @@ button:hover, button:focus {
 select {
   height: 80px;
   font-size: var(--fts-lg);
+}
+
+.close, .edit-close {
+  font-size: 3rem;
+}
+
+.save {
+  font-size: var(--fts-xlg);
+}
+.username-con {
+  text-align: center;
+}
+.input-name {
+  
+  width: 80%;
+  font-size: 3rem;
+}
+.input-name::placeholder {
+  font-size: 3rem;
+}
+.name-add {
+  font-size: var(--fts-xlg);
 }
 
 }
