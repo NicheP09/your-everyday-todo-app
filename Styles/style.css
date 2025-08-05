@@ -270,9 +270,12 @@ ion-icon {
  border-radius: var(--bdr-15);
  margin-bottom: var(--margin-20);
  position: relative;
- opacity:  0;
  transition: 0.30s 0.60s ease;
- transform: translateX(-100%);
+}
+
+.translate {
+  opacity: 0;
+   transform: translateX(-100%);
 }
 .show-ongoing-card {
   opacity: 1;

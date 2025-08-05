@@ -98,6 +98,9 @@ function ongoingSeeFunc() {
   } else if (Object.keys(taskDetails).length > 2) {
      ongoingShow.innerText = "See All";
      ongoingShow.classList.add("see-all")
+    
+    observer()
+
       if (ongoingShow.innerText === "See All") {
     ongoingShow.addEventListener('click', () => {
        
@@ -120,6 +123,7 @@ function totalNumberOfTodo() {
     total ++
   })
   document.querySelector('.notification').innerHTML= total;
+
   saveToStorage()
   return total;
 }
@@ -182,7 +186,7 @@ function saveFunc() {
     
     if ( task !== '' && end01 !=='' ) {
      task.charAt(0).toUpperCase() + task.slice(1);
-   taskDetails.push({task, urgency,timeStarted,endingTime,endingDate});
+   taskDetails.unshift({task, urgency,timeStarted,endingTime,endingDate});
   
 
       
@@ -429,6 +433,8 @@ function deleteFromList(button) {
 }
 
  
+function observer() {
+
 
  const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -441,4 +447,12 @@ function deleteFromList(button) {
  }, {})
 
  const todoCards =  document.querySelectorAll('.ongoing-card');
- todoCards.forEach(todo => observer.observe(todo))
+
+ todoCards.forEach(todo => { 
+   todo.classList.add('translate')
+  observer.observe(todo)
+
+ }
+)
+
+}
