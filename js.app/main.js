@@ -430,4 +430,15 @@ function deleteFromList(button) {
 
  
 
- 
+ const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show-ongoing-card')
+    }else {
+      entry.target.classList.remove('show-ongoing-card')
+    }
+  })
+ }, {})
+
+ const todoCards =  document.querySelectorAll('.ongoing-card');
+ todoCards.forEach(todo => observer.observe(todo))

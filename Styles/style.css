@@ -271,7 +271,14 @@ ion-icon {
  border-radius: var(--bdr-15);
  margin-bottom: var(--margin-20);
  position: relative;
- transition: all 0.30s;
+ opacity:  0;
+ transition: 0.60s 0.80s ease;
+ transform: translateX(-100%);
+}
+.show-ongoing-card {
+  opacity: 1;
+   transform: translateX(0);
+  
 }
 
 .the-one {
@@ -613,11 +620,7 @@ a {
   
 }
 
-.ongoing-card {
 
- font-size: var(--fts-mid);
-
-}
 
 
 
