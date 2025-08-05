@@ -170,8 +170,7 @@ button:hover, button:focus {
   margin-inline: auto;
 }
 h1 {
-  width: 15ch;
-  
+  font-size: var(--fts-mid);
   font-weight: 600;
   padding-block: var(--padding-10);
 }
@@ -272,7 +271,7 @@ ion-icon {
  margin-bottom: var(--margin-20);
  position: relative;
  opacity:  0;
- transition: 0.60s 0.80s ease;
+ transition: 0.30s 0.60s ease;
  transform: translateX(-100%);
 }
 .show-ongoing-card {
