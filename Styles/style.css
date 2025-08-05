@@ -118,17 +118,23 @@ button:hover, button:focus {
 .reminder-icon {
   position: relative;
   background-color: var(--clr-bg-100a);
-  padding: var(--padding-5) 7px;
+  padding: var(--padding-5) 10px;
   border-radius: var(--bdr-50);
   font-size: var(--fts-lg);
+  color: var(--clr-text-100b);
+  
+}
+.reminder-icon a {
+  text-decoration: none;
+  
   color: var(--clr-text-100b);
 }
 
 .notification {
   justify-content: center;
   position: absolute;
-  width: 16px;
-  height: 16px;
+ padding: 0px 6px;
+ line-height: 1;
   font-size:var(--fts-norm);
   font-weight: 600;
   text-align: center;
@@ -138,6 +144,7 @@ button:hover, button:focus {
   top: 4px;
   right: 5px;
   border-radius: var(--bdr-50);
+  
 }
 .name-con {
   padding-top: 20%;
@@ -541,6 +548,9 @@ label {
   right: 0;
   box-shadow: 0 0 3px 4px rgba(246, 246, 246, 0.3);
 }
+a {
+  text-decoration: none;
+}
 
 @media (min-width: 40em) {
 
@@ -556,51 +566,51 @@ label {
 
   h1 {
   width: initial;
-  font-size: 3.5rem;
+  font-size: var(--fts-norm);
  
 }
   nav {
     max-width: 1000px;
-     padding: 40px 20px 100px 20px;
+     padding: 30px 20px 80px 20px;
      font-size: var(--fts-norm);
   }
 
   ul .fa {
-    font-size: 3.5rem;
+    font-size: var(--fts-norm);
   }
 
    .grid-area1 {
-     grid-template-rows: 200px 200px;
+     grid-template-rows: 150px 150px;
      gap: 30px;
    }
 
    ion-icon {
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 .card-content {
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-mid);
   
 }
 
 .card-content p {
   
-  font-size: var(--fts-lg);
+  font-size: var(--fts-mid);
 
 }
 
 .ongoing-tag {
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-mid);
 }
 
 .ongoing-see {
-  font-size: var(--fts-lg);
+  font-size: var(--fts-mid);
   
 }
 
 .ongoing-card {
 
- font-size: var(--fts-lg);
+ font-size: var(--fts-mid);
 
 }
 
@@ -614,14 +624,14 @@ label {
 }
 
 .event {
-  font-size: 4rem;
+  font-size: var(--fts-mid);
 } 
 .get-details {
   line-height: 2;
 }
 .get-details input {
   height: 100px;
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-lg);
 }
 
 select {
@@ -630,11 +640,11 @@ select {
 }
 
 .close, .edit-close {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .save {
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-lg);
 }
 .username-con {
   text-align: center;
@@ -642,13 +652,13 @@ select {
 .input-name {
   
   width: 80%;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .input-name::placeholder {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .name-add {
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-lg);
 }
 
 }

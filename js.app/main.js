@@ -394,16 +394,21 @@ function writeNote() {
 
  document.querySelectorAll('.ongoing-card').forEach((todoCard,index) => {
    let timerId;
+   let setTimeActive= false;
  todoCard.addEventListener('click', () => { 
 
      document.querySelector(`.deleteBtn-${index}`).classList.remove('noshow');
   
-  timerId = setTimeout(() => {
+ if (setTimeActive === false) {
+   timerId = setTimeout(() => {
     
     document.querySelector(`.deleteBtn-${index}`).classList.add('noshow');
-  
-  },5000)
-  
+    setTimeActive =true;
+  },5000);
+ }else {
+  clearTimeout(timerId)
+  setTimeActive = false;
+ }
  }) 
  })
 
