@@ -199,7 +199,11 @@ function saveFunc() {
         totalNumberOfTodo()
              saveToStorage();
     }else {
-      document.querySelector('.error').innerText = "You must input an event and date"
+      const errorText = document.querySelector('.error');
+      errorText.innerText = "You must input an event and date"
+      setTimeout(() => {
+        errorText.innerText = ""
+      },5000)
     }
    
 }
