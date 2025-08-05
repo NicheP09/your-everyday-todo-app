@@ -1,3 +1,10 @@
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+/*Work on delete btn
+*back for the text area
+* do something interesting withv the cards
+*/
+
+
 const showDetailsForm=  document.querySelector(".plus-con");
 const ongoingCon = document.querySelector('.ongoing-card-container');
 const ongoingTask = document.querySelector('.ongoing-task');
@@ -18,8 +25,11 @@ const name1 = document.querySelector('.input-name');
  const nameCon = document.querySelector('.name-con');
  const ongoingSee = document.querySelector('.ongoing-see');
  const note = document.querySelector('.note');
-
-
+ const todaysDate = document.querySelector('.todaysDate');
+ 
+ const today =dayjs()
+ const todayFormatted = today.format('ddd MMM D YYYY');
+ todaysDate.innerText = todayFormatted;
 
 let userName = JSON.parse(localStorage.getItem('userName')) || addUserName() ;
 
@@ -104,11 +114,34 @@ function ongoingSeeFunc() {
 }
 ongoingSeeFunc()
 
+function totalNumberOfTodo() {
+  let total = 0;
+  taskDetails.forEach(details => {
+    total ++
+  })
+  document.querySelector('.notification').innerHTML= total;
+  saveToStorage()
+  return total;
+}
 
+function notificationDisplay() {
+  const listTotal = totalNumberOfTodo();
+  if (listTotal === 0) {
+
+    document.querySelector('.reminder-icon').classList.add('noshow')
+  }else{
+        document.querySelector('.reminder-icon').classList.remove('noshow')
+  }
+  
+}
+notificationDisplay();
 function saveToStorage() { 
   localStorage.setItem('taskDetails', JSON.stringify(taskDetails)) ;
   
 };
+
+
+
 showDetailsForm.addEventListener('click', showForm);
 
 
@@ -142,9 +175,12 @@ function saveFunc() {
     let urgency = urgencyLev.value;
     let timeStarted = startTime.value;
     let endingTime = endTime.value;
-    let endingDate = date.value;
+    let end01 = date.value;
+    let endingDate = dayjs(end01).format('ddd DD MMM');
   
-    if (task !== '') {
+
+    
+    if ( task !== '' && end01 !=='' ) {
      task.charAt(0).toUpperCase() + task.slice(1);
    taskDetails.push({task, urgency,timeStarted,endingTime,endingDate});
   
@@ -156,9 +192,12 @@ function saveFunc() {
           renderTodo();
          
          eventInput.value = '';
-       
-    }
+        totalNumberOfTodo()
              saveToStorage();
+    }else {
+      document.querySelector('.error').innerText = "You must input an event and date"
+    }
+   
 }
 
 renderTodo();
@@ -218,7 +257,7 @@ function renderTodo() {
       <input class="edit-end-time edit-end-time${index}" type="time" name="start" value="12:15">
       </label>
       <label for="calendar">Choose date
-        <input class="edit-date edit-date${index}" type="date" value="2025-07-16">
+        <input class="edit-date edit-date${index}" type="date" value="">
       </label>
 
       <div class="button-con edit-button-con edit-button-con${index} ">

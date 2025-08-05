@@ -61,7 +61,7 @@ body {
  color: var(--clr-text-100);
  background: var(--clr-bg-0);
   line-height: 1.5;
-  min-height: 100dvh;
+  
 }
 
 .todo-container {
@@ -81,10 +81,12 @@ main {
 
 .greet {
   color: var(--clr-text-1);
+  font-size: var(--fts-xlg);
 }
 
 .username {
   font-weight: 600;
+   font-size: var(--fts-xlg);
 }
 
 .intro {
@@ -164,9 +166,14 @@ h1 {
   width: 15ch;
   font-size: var(--fts-xlg);
   font-weight: 600;
-  padding-block: var(--padding-20);
+  padding-block: var(--padding-10);
 }
 
+.todaysDate {
+  text-align: end;
+  font-size: var(--fts-norm);
+  font-weight: 600;
+}
 
 .motivation {
   margin-block: var(--margin-20);
@@ -241,7 +248,7 @@ ion-icon {
 
 .ongoing-card-container {
   margin-block: var(--padding-20);
-  line-height: 2;
+  line-height: 1.9;
 }
 
 .ongoing-card {
@@ -323,7 +330,7 @@ nav {
 }
 ul .fa {
    position: relative;
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-norm);
   background: var(--clr-bg-0);
   border-radius: var(--bdr-5);
   padding: 14px 16px;
@@ -404,9 +411,10 @@ nav a {
   line-height: 1.5;
   transition: all 0.40s 0.3s ease-in-out;
   display: none;
+   padding-top: 10%;
 }
 .close, .edit-close {
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-mid);
   position: absolute;
   top: -2px;
   right:0;
@@ -416,9 +424,7 @@ nav a {
 .input-space {
   margin-top: 50px;
 }
-.get-details {
-  padding-top: 10%;
-}
+
 .get-details input {
   color: var(--clr-text-100);
   width: 100%;
@@ -443,9 +449,15 @@ input[type="time"]::-webkit-calendar-picker-indicator, input[type="date"]::-webk
   
 }
 
+.error {
+  color: red;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
 .get-details-edit input {
   width: 100%;
-  height: 60px;
+  height: 50px;
  border: transparent;
  outline: transparent;
   font-size: var(--fts-norm);
@@ -511,7 +523,7 @@ label {
 @media (min-width: 40em) {
 
   .todo-container {
-    max-width: initial;
+    max-width: 1000px;
     height: initial;
   
   }
@@ -526,9 +538,9 @@ label {
  
 }
   nav {
-    max-width: initial;
+    max-width: 1000px;
      padding: 40px 20px 100px 20px;
-     font-size: 3.5rem;
+     font-size: var(--fts-norm);
   }
 
   ul .fa {
