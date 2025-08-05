@@ -212,8 +212,8 @@ function renderTodo() {
        const {task,urgency,timeStarted,endingTime,endingDate} = taskDetailsObj;
         
       let detailHtml = `
-       <div class="ongoing-card ongoing-card${index}" >
-       <div class="the-one'>
+       <div class="ongoing-card ongoing-card-${index}" >
+       
        <div class="card card${index}"> 
        <div class="edit-icon"> <i class="fa fa-edit"></i></div>
       <div class="priority-tag flex-1">
@@ -234,7 +234,7 @@ function renderTodo() {
        <span class="clr-trans"> Due Date:</span>  ${endingDate}
       </div>
       </div>
-      </div>
+    
        <div class="get-details-edit get-details-edit${index} noshow"> 
   
         <div class="edit-close edit-close${index}"><i class="fa fa-close" required></i></div>
@@ -391,19 +391,38 @@ function writeNote() {
   noteArea.focus();
 }
 
-let touchStartX = 0;
-let touchEndX = 0;
 
- document.querySelectorAll('.the-one').forEach((todoCard,index) => {
+ document.querySelectorAll('.ongoing-card').forEach((todoCard,index) => {
    let timerId;
- todoCard.addEventListener('', (e) => { 
-  console.log(index)
-  timerId = setTimeout(() => {
-    todoCard.classList.add('move-left')
-    document.querySelector(`.deleteBtn=${index}`).classList.remove('noshow')
-  }, 2000);
+ todoCard.addEventListener('click', () => { 
 
+     document.querySelector(`.deleteBtn-${index}`).classList.remove('noshow');
+  
+  timerId = setTimeout(() => {
+    
+    document.querySelector(`.deleteBtn-${index}`).classList.add('noshow');
+  
+  },5000)
+  
+ }) 
  })
- })
+
+ document.querySelectorAll('.deleteBtn').forEach((button, index) => {
+  button.addEventListener('click', () => {
+    deleteFromList(button);
+   let card = document.querySelector(`.ongoing-card-${index}`)
+  card.remove();
+  })
+ });
+
+function deleteFromList(button) {
+   const buttonIndex = button.dataset.index;
+   let detailsIndex;
+   taskDetails.splice(buttonIndex, 1);
+   saveToStorage()
+   
+}
+
  
+
  

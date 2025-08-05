@@ -538,7 +538,7 @@ label {
   background-color: red;
   padding: 10px;
   bottom: 0;
-  right: -50px;
+  right: 0;
   box-shadow: 0 0 3px 4px rgba(246, 246, 246, 0.3);
 }
 
