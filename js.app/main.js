@@ -213,6 +213,7 @@ function renderTodo() {
         
       let detailHtml = `
        <div class="ongoing-card ongoing-card${index}" >
+       <div class="the-one'>
        <div class="card card${index}"> 
        <div class="edit-icon"> <i class="fa fa-edit"></i></div>
       <div class="priority-tag flex-1">
@@ -231,6 +232,7 @@ function renderTodo() {
       </div>
       <div class="date">
        <span class="clr-trans"> Due Date:</span>  ${endingDate}
+      </div>
       </div>
       </div>
        <div class="get-details-edit get-details-edit${index} noshow"> 
@@ -265,9 +267,9 @@ function renderTodo() {
       </div>
     </div>
     </div>
-     
-      <button class="deleteBtn noshow">Delete</button>
-
+     <div class="delete-container">
+      <button class="deleteBtn deleteBtn-${index} noshow" data-index =${index}>Delete</button>
+      </div>
     </div>
    
         
@@ -392,13 +394,13 @@ function writeNote() {
 let touchStartX = 0;
 let touchEndX = 0;
 
- document.querySelectorAll('.ongoing-card').forEach((todoCard) => {
+ document.querySelectorAll('.the-one').forEach((todoCard,index) => {
    let timerId;
- todoCard.addEventListener('pointerdown', (e) => {
- 
+ todoCard.addEventListener('', (e) => { 
+  console.log(index)
   timerId = setTimeout(() => {
     todoCard.classList.add('move-left')
-    document.querySelector('.deleteBtn').classList.remove('noshow')
+    document.querySelector(`.deleteBtn=${index}`).classList.remove('noshow')
   }, 2000);
 
  })

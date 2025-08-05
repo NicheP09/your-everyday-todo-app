@@ -261,6 +261,10 @@ ion-icon {
  position: relative;
  transition: all 0.30s;
 }
+
+.the-one {
+  transition: all 0.30s;
+}
 .edit-icon {
   position: absolute;
   top: -5px;
@@ -410,7 +414,7 @@ nav a {
   position: relative;
   margin-top: var(--margin-10);
   line-height: 1.5;
-  transition: all 0.40s 0.3s ease-in-out;
+ margin-inline: auto;
   display: none;
    padding-top: 10%;
 }
@@ -429,7 +433,7 @@ nav a {
 .get-details input {
   color: var(--clr-text-100);
   width: 100%;
-  height: 80px;
+  height: 60px;
   margin-bottom: var(--padding-20);
   border: 1px solid var(--clr-bg-100a);
   outline: none;
@@ -512,7 +516,7 @@ label {
 }
 .show {
   display: block;
-   transform:center;
+   
   
 }
 
@@ -523,6 +527,10 @@ label {
 
 .move-left {
   transform: translateX(-100px);
+}
+.delete-container{
+  width: 100%;
+  overflow: hidden;
 }
 .deleteBtn {
   position: absolute;
