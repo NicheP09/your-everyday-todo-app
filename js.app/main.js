@@ -212,7 +212,7 @@ function renderTodo() {
        const {task,urgency,timeStarted,endingTime,endingDate} = taskDetailsObj;
         
       let detailHtml = `
-       <div class="ongoing-card ongoing-card${index}">
+       <div class="ongoing-card ongoing-card${index}" >
        <div class="card card${index}"> 
        <div class="edit-icon"> <i class="fa fa-edit"></i></div>
       <div class="priority-tag flex-1">
@@ -233,9 +233,8 @@ function renderTodo() {
        <span class="clr-trans"> Due Date:</span>  ${endingDate}
       </div>
       </div>
-
        <div class="get-details-edit get-details-edit${index} noshow"> 
-      
+  
         <div class="edit-close edit-close${index}"><i class="fa fa-close" required></i></div>
 
       <div class="input-space input-space${index}">
@@ -267,9 +266,10 @@ function renderTodo() {
     </div>
     </div>
      
-    
+      <button class="deleteBtn noshow">Delete</button>
 
     </div>
+   
         
         `
        detailsGen += detailHtml;
@@ -388,3 +388,20 @@ function writeNote() {
   noteCon.classList.add('show')
   noteArea.focus();
 }
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+ document.querySelectorAll('.ongoing-card').forEach((todoCard) => {
+   let timerId;
+ todoCard.addEventListener('click', (e) => {
+ 
+  timerId = setTimeout(() => {
+    todoCard.classList.add('move-left')
+    document.querySelector('.deleteBtn').classList.remove('noshow')
+  }, 2000);
+
+ })
+
+ })
+ 

@@ -252,13 +252,14 @@ ion-icon {
 }
 
 .ongoing-card {
- 
+ position: relative;
  background: var(--clr-bg-100b);
  font-size: var(--fts-norm);
  padding: var(--padding-20);
  border-radius: var(--bdr-15);
  margin-bottom: var(--margin-20);
  position: relative;
+ transition: all 0.30s;
 }
 .edit-icon {
   position: absolute;
@@ -518,6 +519,19 @@ label {
 
 .event {
   font-size: var(--fts-lg);
+}
+
+.move-left {
+  transform: translateX(-100px);
+}
+.deleteBtn {
+  position: absolute;
+  font-size: var(--fts-norm);
+  background-color: red;
+  padding: 10px;
+  bottom: 0;
+  right: -50px;
+  box-shadow: 0 0 3px 4px rgba(246, 246, 246, 0.3);
 }
 
 @media (min-width: 40em) {
