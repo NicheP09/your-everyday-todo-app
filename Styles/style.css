@@ -171,13 +171,18 @@ button:hover, button:focus {
 }
 h1 {
   width: 15ch;
-  font-size: var(--fts-xlg);
+  
   font-weight: 600;
   padding-block: var(--padding-10);
 }
 
+.today-date-con {
+  position: relative;
+}
+
 .todaysDate {
-  text-align: end;
+  position: absolute;
+  right: 0;
   font-size: var(--fts-norm);
   font-weight: 600;
 }
@@ -423,7 +428,7 @@ nav a {
   line-height: 1.5;
  margin-inline: auto;
   display: none;
-   padding-top: 10%;
+   padding-top: 20px;
 }
 .close, .edit-close {
   font-size: var(--fts-mid);
@@ -566,7 +571,7 @@ a {
 
   h1 {
   width: initial;
-  font-size: var(--fts-norm);
+ 
  
 }
   nav {
