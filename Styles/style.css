@@ -172,7 +172,7 @@ button:hover, button:focus {
 h1 {
   font-size: var(--fts-mid);
   font-weight: 600;
-  padding-block: var(--padding-10);
+  padding-block: var(--padding-20) 10px;
 }
 
 .today-date-con {
