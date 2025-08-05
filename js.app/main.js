@@ -394,7 +394,7 @@ let touchEndX = 0;
 
  document.querySelectorAll('.ongoing-card').forEach((todoCard) => {
    let timerId;
- todoCard.addEventListener('click', (e) => {
+ todoCard.addEventListener('pointerdown', (e) => {
  
   timerId = setTimeout(() => {
     todoCard.classList.add('move-left')
@@ -402,6 +402,6 @@ let touchEndX = 0;
   }, 2000);
 
  })
-
  })
+ 
  
