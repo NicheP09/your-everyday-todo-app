@@ -454,6 +454,7 @@ function deleteFromList(button) {
    taskDetails.splice(buttonIndex, 1);
    totalNumberOfTodo()
    saveToStorage()
+   ongoingSeeFunc()
    
 }
 
@@ -495,15 +496,15 @@ async function stock() {
 try{
   const response = await fetch(`${API_ENDPOINT}/coins/markets?ids=${coinId}&vs_currency=${currency}`);
   const data = await response.json();
-  console.log(data)
+  
   const price = data[0].current_price;
    
- console.log(price)
+ 
   
   const logo = data[0].image;
   const myLogo = `<img class="one-logo" src="${logo}">
-   <div class="card-content cc1"> ${price}
-   <p>Today Price</p>
+   <div class="card-content cc1"> $${price}
+   <p>Current Price</p>
      </div>
   
   
@@ -524,6 +525,32 @@ document.querySelector('.cc1').addEventListener('change', () => {
 
 }
 stock()
-setInterval(stock, 60000)
 
 
+async function randomQuotes() {
+  try {
+    const response = await fetch('https://random-quotes-freeapi.vercel.app/api/random');
+    const data = await response.json();
+    
+    console.log(data)
+
+    let cardTwoHtml = `
+     
+        <div class="card-content card-two"> 
+          <span class="quote">${data.quote}</span> 
+          <p class="author">${data.author}</p>
+        </div>
+    `
+
+    document.querySelector('.two').innerHTML =cardTwoHtml;
+  } catch(error){
+    console.error("Error fetching quotes")
+  }
+}
+randomQuotes()
+
+setInterval(() => {
+  stock();
+  randomQuotes();
+  
+}, 60000)

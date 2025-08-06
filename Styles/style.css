@@ -82,12 +82,12 @@ main {
 
 .greet {
   color: var(--clr-text-1);
-  font-size: var(--fts-xlg);
+  font-size: var(--fts-lg);
 }
 
 .username {
   font-weight: 600;
-   font-size: var(--fts-xlg);
+   font-size: var(--fts-lg);
    margin-top: var(--margin-10);
 }
 
@@ -222,6 +222,7 @@ h1 {
 .two {
   background-color:var(--clr-grid-two);
    grid-area: two;
+  
 }
 
 .three {
@@ -245,11 +246,16 @@ ion-icon {
 .card-content p {
   font-weight: initial;
  
-  font-size: 1.3rem;
+  font-size: var(--fts-norm);
 
 }
 
 
+.card-two {
+
+  font-size: 1.1rem;
+
+}
 
 .ongoing-tag {
   font-size: var(--fts-mid);
@@ -269,7 +275,7 @@ ion-icon {
 
 .see-all:hover {
   opacity: 0.9;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .ongoing-card-container {
@@ -434,7 +440,7 @@ nav a {
 .grid-area1{
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 100px 100px;
+  grid-template-rows: 120px 110px;
   grid-template-areas: 
   "one two"
   "one three";
@@ -629,7 +635,7 @@ a {
 
    .grid-area1 {
      grid-template-rows: 150px 150px;
-     gap: 30px;
+     gap: 20px;
    }
 
   
