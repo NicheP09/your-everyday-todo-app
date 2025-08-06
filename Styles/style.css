@@ -210,6 +210,11 @@ h1 {
   animation: rotate 2s linear;
 }
 
+.rotate {
+   transition:all 0.30s ;
+  animation: rotate 2s alternate;
+}
+
 .one-logo{
   width: 100px;
 }
@@ -580,12 +585,7 @@ a {
  0% {
   transform: rotateY(0);
  }
- 30% {
-  transform: rotateY(100deg);
- }
- 60% {
-  transform: rotateY(200deg);
- }
+
 
  100% {
   transform: rotateY(360deg);

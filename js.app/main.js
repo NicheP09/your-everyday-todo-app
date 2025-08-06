@@ -489,6 +489,7 @@ try{
   `
   
   document.querySelector('.one'). innerHTML = myLogo;
+
   
   
 }catch (error) {
@@ -496,7 +497,12 @@ console.error('Error fetching data')
 throw error;
 }
 
+document.querySelector('.cc1').addEventListener('change', () => {
+  document.querySelector('.one').classList.add('rotate')
+})
+
 }
 stock()
 setInterval(stock, 60000)
+
 
