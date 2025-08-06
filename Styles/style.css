@@ -222,6 +222,8 @@ h1 {
 .two {
   background-color:var(--clr-grid-two);
    grid-area: two;
+
+   animation: flip 0.60s linear;
   
 }
 
@@ -256,6 +258,7 @@ ion-icon {
   font-size: 1.1rem;
 
 }
+
 
 .ongoing-tag {
   font-size: var(--fts-mid);
@@ -434,7 +437,7 @@ nav a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  column-gap: 40px;
+  column-gap: 20px;
 }
 
 .grid-area1{

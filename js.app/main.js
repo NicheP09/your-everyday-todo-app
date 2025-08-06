@@ -34,8 +34,6 @@ const name1 = document.querySelector('.input-name');
 let userName = JSON.parse(localStorage.getItem('userName')) || addUserName() ;
 
 
-
-
 function saveToStorageName() {
 
   localStorage.setItem('userName', JSON.stringify(userName));
@@ -88,6 +86,24 @@ function renderName() {
 
 
 let taskDetails = JSON.parse(localStorage.getItem('taskDetails')) || [] ;
+
+function card3() {
+  
+    let cardThreeHtml = `
+       <ion-icon name="shapes"></ion-icon>
+        <div class="card-content">  <span class="do">You have todo: ${taskDetails[0].task}</span>
+          <p>Priority Level is: ${taskDetails[0].urgency} %</p>
+        </div>
+      
+      `
+      document.querySelector('.three').innerHTML = cardThreeHtml;
+      console.log()
+}
+card3()
+
+
+
+
 
 function ongoingSeeFunc() {
   let ongoingShow = ongoingSee;
@@ -199,6 +215,8 @@ function saveFunc() {
         totalNumberOfTodo()
          activateDelBtn()
              saveToStorage();
+
+    
            
     }else {
       const errorText = document.querySelector('.error');
@@ -506,13 +524,9 @@ try{
    <div class="card-content cc1"> $${price}
    <p>Current Price</p>
      </div>
-  
-  
   `
-  
-  document.querySelector('.one'). innerHTML = myLogo;
 
-  
+  document.querySelector('.one'). innerHTML = myLogo;
   
 }catch (error) {
 console.error('Error fetching data')
@@ -532,7 +546,7 @@ async function randomQuotes() {
     const response = await fetch('https://random-quotes-freeapi.vercel.app/api/random');
     const data = await response.json();
     
-    console.log(data)
+   
 
     let cardTwoHtml = `
      
@@ -548,6 +562,10 @@ async function randomQuotes() {
   }
 }
 randomQuotes()
+
+
+
+
 
 setInterval(() => {
   stock();
