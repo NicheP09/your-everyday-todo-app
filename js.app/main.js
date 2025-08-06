@@ -460,3 +460,43 @@ function observer() {
 )
 
 }
+
+
+
+
+
+ 
+  const API_ENDPOINT = 'https://api.coingecko.com/api/v3'
+
+async function stock() {
+  const coinId = 'bitcoin';
+  const currency = 'usd';
+try{
+  const response = await fetch(`${API_ENDPOINT}/coins/markets?ids=${coinId}&vs_currency=${currency}`);
+  const data = await response.json();
+  console.log(data)
+  const price = data[0].current_price;
+   
+ console.log(price)
+  
+  const logo = data[0].image;
+  const myLogo = `<img class="one-logo" src="${logo}">
+   <div class="card-content cc1"> ${price}
+   <p>Today Price</p>
+     </div>
+  
+  
+  `
+  
+  document.querySelector('.one'). innerHTML = myLogo;
+  
+  
+}catch (error) {
+console.error('Error fetching data')
+throw error;
+}
+
+}
+stock()
+setInterval(stock, 60000)
+

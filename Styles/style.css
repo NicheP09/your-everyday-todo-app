@@ -199,6 +199,12 @@ h1 {
 .one {
   background-color: var(--clr-grid-one);
   grid-area: one;
+  text-align: center;
+
+}
+
+.one-logo{
+  width: 100px;
 }
 
 .two {
@@ -227,14 +233,11 @@ ion-icon {
 .card-content p {
   font-weight: initial;
  
-  font-size: var(--fts-mid);
+  font-size: 1.3rem;
 
 }
 
-.cc1 {
-  margin-top: 10px;
 
-}
 
 .ongoing-tag {
   font-size: var(--fts-mid);
@@ -598,10 +601,8 @@ a {
      gap: 30px;
    }
 
-   ion-icon {
-  font-size: 3rem;
-}
-
+  
+  
 .card-content {
   font-size: var(--fts-mid);
   
