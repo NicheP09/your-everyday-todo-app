@@ -1,7 +1,7 @@
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 /*Work on delete btn
 *back for the text area
-* do something interesting withv the cards
+* do something interesting with the cards
 */
 
 
@@ -100,6 +100,7 @@ function card3() {
       console.log()
 }
 card3()
+
 
 
 
@@ -322,6 +323,7 @@ function renderTodo() {
      })
     ongoingSeeFunc()
       activateDelBtn()
+      
     }     
      
 function urgencyTag(percent) {
@@ -418,14 +420,29 @@ function editSave(position) {
 
 note.addEventListener('click', () => writeNote());
 
-const noteCon = document.querySelector('.write-con')
+ const noteCon = document.querySelector('.write-con')
 const noteArea = document.querySelector('.note-area')
 
 function writeNote() {
+ 
   main.classList.add('noshow');
   noteCon.classList.add('show')
   noteArea.focus();
+  document.querySelector('nav').classList.add('noshow')
+ 
 }
+ document.querySelector('.arrow').addEventListener('click', backHomeFromWriting);
+
+function backHomeFromWriting() {
+ 
+  main.classList.remove('noshow');
+  noteCon.classList.remove('show')
+  noteArea.blur();
+}
+
+ backHomeFromWriting()
+
+
 
 function activateDelBtn() {
  document.querySelectorAll('.ongoing-card').forEach((todoCard,index) => {
