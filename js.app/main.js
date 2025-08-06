@@ -197,7 +197,9 @@ function saveFunc() {
          
          eventInput.value = '';
         totalNumberOfTodo()
+         activateDelBtn()
              saveToStorage();
+           
     }else {
       const errorText = document.querySelector('.error');
       errorText.innerText = "You must input an event and date"
@@ -220,7 +222,7 @@ function renderTodo() {
        const {task,urgency,timeStarted,endingTime,endingDate} = taskDetailsObj;
         
       let detailHtml = `
-       <div class="ongoing-card ongoing-card-${index}" >
+       <div class="ongoing-card ongoing-card-${index}" data-index= "${index}" >
        
        <div class="card card${index}"> 
        <div class="edit-icon"> <i class="fa fa-edit"></i></div>
@@ -300,8 +302,9 @@ function renderTodo() {
       })
      })
     ongoingSeeFunc()
+      activateDelBtn()
     }     
-    
+     
 function urgencyTag(percent) {
   const priority1 = document.querySelectorAll('.priority');
   taskDetails.forEach((task, index) => {
@@ -399,13 +402,16 @@ function writeNote() {
   noteArea.focus();
 }
 
-
+function activateDelBtn() {
  document.querySelectorAll('.ongoing-card').forEach((todoCard,index) => {
    let timerId;
    let setTimeActive= false;
  todoCard.addEventListener('click', () => { 
-
-     document.querySelector(`.deleteBtn-${index}`).classList.remove('noshow');
+  const {index} = todoCard.dataset;
+  
+     const deleteActivate = document.querySelector(`.deleteBtn-${index}`)
+     
+     deleteActivate.classList.remove('noshow');
   
  if (setTimeActive === false) {
    timerId = setTimeout(() => {
@@ -421,17 +427,25 @@ function writeNote() {
  })
 
  document.querySelectorAll('.deleteBtn').forEach((button, index) => {
+ 
   button.addEventListener('click', () => {
     deleteFromList(button);
    let card = document.querySelector(`.ongoing-card-${index}`)
   card.remove();
+  
   })
  });
+
+
+}
+
+
 
 function deleteFromList(button) {
    const buttonIndex = button.dataset.index;
    let detailsIndex;
    taskDetails.splice(buttonIndex, 1);
+   totalNumberOfTodo()
    saveToStorage()
    
 }
