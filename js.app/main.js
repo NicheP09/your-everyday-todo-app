@@ -88,11 +88,12 @@ function renderName() {
 let taskDetails = JSON.parse(localStorage.getItem('taskDetails')) || [] ;
 
 function card3() {
-  
+  const cardTask = taskDetails.length >= 1 ? taskDetails[0].task : "Add Task";
+  const prior = taskDetails.length >= 1 ? taskDetails[0].urgency + "%" : "Set Me"
     let cardThreeHtml = `
        <ion-icon name="shapes"></ion-icon>
-        <div class="card-content">  <span class="do">You have todo: ${taskDetails[0].task}</span>
-          <p>Priority Level is: ${taskDetails[0].urgency} %</p>
+        <div class="card-content">  <span class="do">You have todo: ${cardTask}</span>
+          <p>Priority Level is: ${prior} </p>
         </div>
       
       `
@@ -298,7 +299,7 @@ function renderTodo() {
     </div>
     </div>
      <div class="delete-container">
-      <button class="deleteBtn deleteBtn-${index} noshow" data-index =${index}>Delete</button>
+      <button class="deleteBtn deleteBtn-${index} noshow" data-index ="${index}">Delete</button>
       </div>
     </div>
    
@@ -445,20 +446,28 @@ function backHomeFromWriting() {
 
 
 function activateDelBtn() {
- document.querySelectorAll('.ongoing-card').forEach((todoCard,index) => {
-   let timerId;
+    let timerId;
    let setTimeActive= false;
+ document.querySelectorAll('.ongoing-card').forEach((todoCard,index) => {
+ 
  todoCard.addEventListener('click', () => { 
   const {index} = todoCard.dataset;
   
-     const deleteActivate = document.querySelector(`.deleteBtn-${index}`)
-     
-     deleteActivate.classList.remove('noshow');
+   
+        const deleteActivate = document.querySelector(`.deleteBtn-${index}`);
+      
+        if (deleteActivate) {
+             deleteActivate.classList.remove('noshow');
+        }
+  
   
  if (setTimeActive === false) {
    timerId = setTimeout(() => {
     
-    document.querySelector(`.deleteBtn-${index}`).classList.add('noshow');
+   const delEle = document.querySelector(`.deleteBtn-${index}`)
+   if (delEle) {
+    delEle.classList.add('noshow');
+   }
     setTimeActive =true;
   },5000);
  }else {

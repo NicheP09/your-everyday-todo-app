@@ -211,6 +211,10 @@ h1 {
 
 }
 
+ion-icon {
+  width: 60px;
+  height: 60px;
+}
 
 .one {
   background-color: var(--clr-grid-one);
