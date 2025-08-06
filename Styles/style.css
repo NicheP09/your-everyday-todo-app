@@ -537,6 +537,13 @@ label {
   text-align: center;
 }
 
+.edit-error {
+  color: red;
+  margin-block: var(--margin-10);
+  font-size: 1.3rem;
+
+}
+
 
 .note-area {
   padding: var(--padding-10);

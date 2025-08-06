@@ -272,6 +272,7 @@ function renderTodo() {
       </label>
 
       <div class="button-con edit-button-con edit-button-con${index} ">
+      <div class="edit-error edit-error-${index} noshow">Hello</div>
         <button class="save" type="">Save</button>
       </div>
       </div>
@@ -373,7 +374,7 @@ function editSave(position) {
   let editedEndTime = editEndTime.value;
   let editedEndDate =  editEndDate.value;
 
- 
+ if (editedInput !== '' && editedEndDate !== '') {
   const newEdit = taskDetails[position];
   newEdit.task = editedInput;
   newEdit.urgency = editedPriority;
@@ -381,11 +382,17 @@ function editSave(position) {
   newEdit.endingTime = editedEndTime;
   newEdit.endingDate = editedEndDate;
 
-   saveToStorage()
-  renderTodo();
- 
-   editCard.classList.remove('show');
+    editCard.classList.remove('show');
    card.classList.remove('noshow');
+
+    saveToStorage()
+  renderTodo();
+ }else {
+  const error =document.querySelector(`.edit-error-${position}`);
+  error.innerText = "You must enter an event and date"
+  error.classList.remove('noshow');
+ }
+   
    
 }
 
