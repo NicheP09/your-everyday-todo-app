@@ -217,6 +217,7 @@ function saveFunc() {
         totalNumberOfTodo()
          activateDelBtn()
              saveToStorage();
+             card3()
 
     
            
@@ -499,6 +500,8 @@ function deleteFromList(button) {
    totalNumberOfTodo()
    saveToStorage()
    ongoingSeeFunc()
+    card3()
+
    
 }
 

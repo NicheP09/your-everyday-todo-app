@@ -211,9 +211,9 @@ h1 {
 
 }
 
-ion-icon {
-  width: 60px;
-  height: 60px;
+
+.do {
+  font-size: var(--fts-norm);
 }
 
 .one {
@@ -247,7 +247,8 @@ ion-icon {
 }
 
 ion-icon {
-  font-size: 2.2rem;
+  width: 60px;
+  height: 60px;
   color: maroon;
   box-shadow: 0 0 3px 5px var(--clr-bg-100b);
 }
@@ -457,7 +458,7 @@ nav a {
 .grid-area1{
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 120px 110px;
+  grid-template-rows: 120px 120px;
   grid-template-areas: 
   "one two"
   "one three";
