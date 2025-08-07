@@ -211,7 +211,7 @@ function saveFunc() {
     notificationDisplay();
     card3();
   } else {
-    const errorText = document.querySelector('.error');
+    const errorText = document.querySelector('.save-err');
     errorText.innerText = "You must input an event and date";
     setTimeout(() => {
       errorText.innerText = "";
