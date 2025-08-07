@@ -31,56 +31,55 @@ const name1 = document.querySelector('.input-name');
  const todayFormatted = today.format('ddd MMM D YYYY');
  todaysDate.innerText = todayFormatted;
 
-let userName = JSON.parse(localStorage.getItem('userName')) || addUserName() ;
+
+
+let userName = JSON.parse(localStorage.getItem('userName'));
+if (!userName) {
+  addUserName();
+}
+// ...existing code...
+
 
 
 function saveToStorageName() {
-
   localStorage.setItem('userName', JSON.stringify(userName));
-}
-renderName()
-
-function addUserName(){
-  main.classList.add('noshow')
-  nameCon.classList.remove('noshow')
-  name1.addEventListener('keydown', (e) => {
-    if (e.key === "Enter") {
-      userName = name1.value;
-     
-      if (userName !== "") {
-        userName.charAt(0).toUpperCase() + userName.slice(1);
-      renderName()
-      nameCon.classList.add('noshow');
-      main.classList.remove('noshow')
-      
-      saveToStorageName()
-      }
-     
-
-    }
-  })
-
-
-
-
-  saveName.addEventListener("click", () => {
-    userName = name1.value;
-    
-    if (userName !== "") {
-       userName.charAt(0).toUpperCase() + userName.slice(1);
-     renderName()
-      nameCon.classList.add('noshow');
-      main.classList.remove('noshow')
-      saveToStorageName()
-      }
-  })
- 
-
 }
 
 function renderName() {
-   showName.innerHTML = userName;
+  showName.innerHTML = userName ? userName : '';
 }
+
+if (userName) {
+  renderName();
+}
+
+function addUserName() {
+  main.classList.add('noshow');
+  nameCon.classList.remove('noshow');
+
+  function handleNameInput() {
+    let input = name1.value.trim();
+    if (input !== "") {
+      userName = input.charAt(0).toUpperCase() + input.slice(1);
+      renderName();
+      nameCon.classList.add('noshow');
+      main.classList.remove('noshow');
+      saveToStorageName();
+    } else {
+      document.querySelector('.username-err').innerText = "Enter a name";
+    }
+  }
+
+  name1.addEventListener('keydown', (e) => {
+    if (e.key === "Enter") {
+      handleNameInput();
+    }
+  });
+
+  saveName.addEventListener("click", handleNameInput);
+}
+
+
 
 
 
@@ -88,17 +87,21 @@ function renderName() {
 let taskDetails = JSON.parse(localStorage.getItem('taskDetails')) || [] ;
 
 function card3() {
-  const cardTask = taskDetails.length >= 1 ? taskDetails[0].task : "Add Task";
-  const prior = taskDetails.length >= 1 ? taskDetails[0].urgency + "%" : "Set Me"
+  const cardTask = taskDetails.length >= 1 ? taskDetails[0].task : "No Task";
+  const prior = taskDetails.length >= 1 ? taskDetails[0].urgency + "%" : "No Level"
+  const deadline = taskDetails.length >= 1 ? taskDetails[0].endingDate : "No Deadline";
+  
     let cardThreeHtml = `
        <ion-icon name="shapes"></ion-icon>
-        <div class="card-content">  <span class="do">You have todo: ${cardTask}</span>
-          <p>Priority Level is: ${prior} </p>
+        <div class="card-content">  <span class="do">Event: ${cardTask}</span>
+          <p>Level: ${prior} </p>
+          <p>Deadline: ${deadline} </p>
+        
         </div>
       
       `
       document.querySelector('.three').innerHTML = cardThreeHtml;
-      console.log()
+      
 }
 card3()
 
@@ -141,7 +144,7 @@ function totalNumberOfTodo() {
     total ++
   })
   document.querySelector('.notification').innerHTML= total;
-
+ 
   saveToStorage()
   return total;
 }
@@ -186,49 +189,34 @@ function closeForm() {
 
 saveAdd.addEventListener('click', saveFunc);
 
-
-
-
-
 function saveFunc() {
+  let task = eventInput.value.trim();
+  let urgency = urgencyLev.value;
+  let timeStarted = startTime.value;
+  let endingTime = endTime.value;
+  let end01 = date.value;
+  let endingDate = dayjs(end01).format('ddd DD MMM');
 
+  if (task !== '' && end01 !== '') {
+    task = task.charAt(0).toUpperCase() + task.slice(1);
+    taskDetails.unshift({ task, urgency, timeStarted, endingTime, endingDate });
 
-    let task = eventInput.value;
-    let urgency = urgencyLev.value;
-    let timeStarted = startTime.value;
-    let endingTime = endTime.value;
-    let end01 = date.value;
-    let endingDate = dayjs(end01).format('ddd DD MMM');
-  
-
-    
-    if ( task !== '' && end01 !=='' ) {
-     task.charAt(0).toUpperCase() + task.slice(1);
-   taskDetails.unshift({task, urgency,timeStarted,endingTime,endingDate});
-  
-
-      
-         getDetails.classList.remove('show');
-         main.classList.remove('noshow')
-
-          renderTodo();
-         
-         eventInput.value = '';
-        totalNumberOfTodo()
-         activateDelBtn()
-             saveToStorage();
-             card3()
-
-    
-           
-    }else {
-      const errorText = document.querySelector('.error');
-      errorText.innerText = "You must input an event and date"
-      setTimeout(() => {
-        errorText.innerText = ""
-      },5000)
-    }
-   
+    getDetails.classList.remove('show');
+    main.classList.remove('noshow');
+    renderTodo();
+    eventInput.value = '';
+    totalNumberOfTodo();
+    activateDelBtn();
+    saveToStorage();
+    notificationDisplay();
+    card3();
+  } else {
+    const errorText = document.querySelector('.error');
+    errorText.innerText = "You must input an event and date";
+    setTimeout(() => {
+      errorText.innerText = "";
+    }, 5000);
+  }
 }
 
 renderTodo();
@@ -378,44 +366,40 @@ const card = document.querySelector(`.card${position}`);
 }
 
 
+
 function editSave(position) {
   const editCard = document.querySelector(`.get-details-edit${position}`);
   const card = document.querySelector(`.card${position}`);
   const editInput = document.querySelector(`.edit-event${position}`);
-
   const editpriority = document.querySelector(`.edit-urgency-level${position}`);
-
   const editStartTime = document.querySelector(`.edit-start-time${position}`);
   const editEndTime = document.querySelector(`.edit-end-time${position}`);
   const editEndDate = document.querySelector(`.edit-date${position}`);
-  
 
-  let editedInput = editInput.value;
+  let editedInput = editInput.value.trim();
   let editedPriority = editpriority.value;
   let editedStartTime = editStartTime.value;
   let editedEndTime = editEndTime.value;
-  let editedEndDate =  editEndDate.value;
+  let editedEndDate = editEndDate.value;
 
- if (editedInput !== '' && editedEndDate !== '') {
-  const newEdit = taskDetails[position];
-  newEdit.task = editedInput;
-  newEdit.urgency = editedPriority;
-  newEdit.timeStarted = editedStartTime;
-  newEdit.endingTime = editedEndTime;
-  newEdit.endingDate = editedEndDate;
+  if (editedInput !== '' && editedEndDate !== '') {
+    editedInput = editedInput.charAt(0).toUpperCase() + editedInput.slice(1);
+    const newEdit = taskDetails[position];
+    newEdit.task = editedInput;
+    newEdit.urgency = editedPriority;
+    newEdit.timeStarted = editedStartTime;
+    newEdit.endingTime = editedEndTime;
+    newEdit.endingDate = editedEndDate;
 
     editCard.classList.remove('show');
-   card.classList.remove('noshow');
-
-    saveToStorage()
-  renderTodo();
- }else {
-  const error =document.querySelector(`.edit-error-${position}`);
-  error.innerText = "You must enter an event and date"
-  error.classList.remove('noshow');
- }
-   
-   
+    card.classList.remove('noshow');
+    saveToStorage();
+    renderTodo();
+  } else {
+    const error = document.querySelector(`.edit-error-${position}`);
+    error.innerText = "You must enter an event and date";
+    error.classList.remove('noshow');
+  }
 }
 
 
@@ -562,9 +546,6 @@ console.error('Error fetching data')
 throw error;
 }
 
-document.querySelector('.cc1').addEventListener('change', () => {
-  document.querySelector('.one').classList.add('rotate')
-})
 
 }
 stock()
@@ -580,7 +561,7 @@ async function randomQuotes() {
     let cardTwoHtml = `
      
         <div class="card-content card-two"> 
-          <span class="quote">${data.quote}</span> 
+          <p class="quote">${data.quote}</p> 
           <p class="author">${data.author}</p>
         </div>
     `
@@ -599,5 +580,4 @@ randomQuotes()
 setInterval(() => {
   stock();
   randomQuotes();
-  
-}, 60000)
+}, 60000);

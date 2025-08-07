@@ -1,3 +1,7 @@
+/* Hide main when .name-con is visible */
+.name-con:not(.noshow) ~ main {
+  display: none !important;
+}
 * {
   padding: 0;
   margin: 0;
@@ -614,6 +618,9 @@ a {
   text-decoration: none;
 }
 
+.quote {
+  font-size: var(--fts-s);
+}
 @keyframes rotate {
  0% {
   transform: rotateY(0);
