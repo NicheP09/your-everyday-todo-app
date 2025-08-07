@@ -26,6 +26,7 @@ const name1 = document.querySelector('.input-name');
  const ongoingSee = document.querySelector('.ongoing-see');
  const note = document.querySelector('.note');
  const todaysDate = document.querySelector('.todaysDate');
+ const nav =  document.querySelector('nav');
  
  const today =dayjs()
  const todayFormatted = today.format('ddd MMM D YYYY');
@@ -87,9 +88,9 @@ function addUserName() {
 let taskDetails = JSON.parse(localStorage.getItem('taskDetails')) || [] ;
 
 function card3() {
-  const cardTask = taskDetails.length >= 1 ? taskDetails[0].task : "No Task";
-  const prior = taskDetails.length >= 1 ? taskDetails[0].urgency + "%" : "No Level"
-  const deadline = taskDetails.length >= 1 ? taskDetails[0].endingDate : "No Deadline";
+  const cardTask = taskDetails.length >= 1 ? taskDetails[taskDetails.length -1].task : "No Task";
+  const prior = taskDetails.length >= 1 ? taskDetails[taskDetails.length -1].urgency + "%" : "No Level"
+  const deadline = taskDetails.length >= 1 ? taskDetails[taskDetails.length -1].endingDate : "No Deadline";
   
     let cardThreeHtml = `
        <ion-icon name="shapes"></ion-icon>
@@ -312,7 +313,7 @@ function renderTodo() {
       })
      })
     ongoingSeeFunc()
-      activateDelBtn()
+    activateDelBtn()
      
     }     
      
@@ -395,6 +396,7 @@ function editSave(position) {
     card.classList.remove('noshow');
     saveToStorage();
     renderTodo();
+    card3();
   } else {
     const error = document.querySelector(`.edit-error-${position}`);
     error.innerText = "You must enter an event and date";
@@ -414,12 +416,14 @@ function writeNote() {
   main.classList.add('noshow');
   noteCon.classList.add('show')
   noteArea.focus();
-  document.querySelector('nav').classList.add('noshow')
+nav.classList.add('noshow')
  
 }
  document.querySelector('.arrow').addEventListener('click', backHomeFromWriting);
 
 function backHomeFromWriting() {
+
+  nav.classList.remove('noshow')
  
   main.classList.remove('noshow');
   noteCon.classList.remove('show')
