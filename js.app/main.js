@@ -313,7 +313,7 @@ function renderTodo() {
      })
     ongoingSeeFunc()
       activateDelBtn()
-      
+     
     }     
      
 function urgencyTag(percent) {
@@ -529,18 +529,25 @@ try{
   const data = await response.json();
   
   const price = data[0].current_price;
-   
- 
-  
   const logo = data[0].image;
+  const oneEl = document.querySelector('.one');
+  // Get previous price if available
+  let prevPrice = oneEl && oneEl.dataset.price ? parseFloat(oneEl.dataset.price) : null;
   const myLogo = `<img class="one-logo" src="${logo}">
    <div class="card-content cc1"> $${price}
    <p>Current Price</p>
      </div>
-  `
-
-  document.querySelector('.one'). innerHTML = myLogo;
-  
+  `;
+  if (oneEl) {
+    oneEl.innerHTML = myLogo;
+    oneEl.dataset.price = price;
+    if (prevPrice !== null && prevPrice !== price) {
+      oneEl.classList.remove('rotate'); // reset if already animating
+      // Force reflow to restart animation
+      void oneEl.offsetWidth;
+      oneEl.classList.add('rotate');
+    }
+  }
 }catch (error) {
 console.error('Error fetching data')
 throw error;
@@ -558,15 +565,23 @@ async function randomQuotes() {
     
    
 
+    const twoEl = document.querySelector('.two');
+    let prevQuote = twoEl && twoEl.dataset.quote ? twoEl.dataset.quote : null;
     let cardTwoHtml = `
-     
         <div class="card-content card-two"> 
           <p class="quote">${data.quote}</p> 
           <p class="author">${data.author}</p>
         </div>
-    `
-
-    document.querySelector('.two').innerHTML =cardTwoHtml;
+    `;
+    if (twoEl) {
+      twoEl.innerHTML = cardTwoHtml;
+      twoEl.dataset.quote = data.quote;
+      if (prevQuote !== null && prevQuote !== data.quote) {
+        twoEl.classList.remove('flip'); // reset if already animating
+        void twoEl.offsetWidth;
+        twoEl.classList.add('flip');
+      }
+    }
   } catch(error){
     console.error("Error fetching quotes")
   }
